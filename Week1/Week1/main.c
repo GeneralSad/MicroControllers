@@ -71,3 +71,35 @@ int opdrachtb3( void )
 
 	return 1;
 }
+
+int opdrachtb4(void)
+{
+	DDRD = 0b11111111;
+	int increment = 1;
+	int value = 0x01;
+	
+	while(1)
+	{
+		
+		if (value == 0x80)
+		{
+			increment = -1;
+		} else if (value == 0x01)
+		{
+			increment = 1;
+		}
+		
+		if (increment == 1)
+		{
+			value = value << 1;
+		} else
+		{
+			value = value >> 1;
+		}
+		
+		PORTD = value;
+		wait(250);
+	}
+	
+	return 1;
+}
