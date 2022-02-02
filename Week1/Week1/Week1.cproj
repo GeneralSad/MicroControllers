@@ -6,7 +6,7 @@
     <ToolchainName>com.microchip.xc8</ToolchainName>
     <ProjectGuid>2285C48D-296E-43FD-A7B6-69885F64CFFD</ProjectGuid>
     <avrdevice>ATmega128</avrdevice>
-    <avrdeviceseries>none</avrdeviceseries>
+    <avrdeviceseries>mega</avrdeviceseries>
     <OutputType>Executable</OutputType>
     <Language>C</Language>
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
@@ -29,15 +29,38 @@
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <EraseKey />
     <AsfFrameworkConfig>
-      <framework-data xmlns="">
-  <options />
+      <framework-data>
+  <options>
+    <option id="common.applications.user_application" value="Add" config="" content-id="Atmel.ASF" />
+    <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
+  </options>
   <configurations />
-  <files />
-  <documentation help="" />
+  <files>
+    <file path="src/config/conf_board.h" framework="" version="" source="common/applications/user_application/atmega128_stk600-mega/config/conf_board.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/main.c" framework="" version="" source="common/applications/user_application/main.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/boards/board.h" framework="" version="" source="common/boards/board.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/utils/interrupt.h" framework="" version="" source="common/utils/interrupt.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/utils/interrupt/interrupt_avr8.h" framework="" version="" source="common/utils/interrupt/interrupt_avr8.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/utils/make/Makefile.avr.in" framework="" version="" source="common/utils/make/Makefile.avr.in" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/common/utils/parts.h" framework="" version="" source="common/utils/parts.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/boards/stk600/rcx_x/init.c" framework="" version="" source="mega/boards/stk600/rcx_x/init.c" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/assembler.h" framework="" version="" source="mega/utils/assembler.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/assembler/gas.h" framework="" version="" source="mega/utils/assembler/gas.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/compiler.h" framework="" version="" source="mega/utils/compiler.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/preprocessor/mrepeat.h" framework="" version="" source="mega/utils/preprocessor/mrepeat.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/preprocessor/preprocessor.h" framework="" version="" source="mega/utils/preprocessor/preprocessor.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/preprocessor/stringz.h" framework="" version="" source="mega/utils/preprocessor/stringz.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/preprocessor/tpaste.h" framework="" version="" source="mega/utils/preprocessor/tpaste.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/progmem.h" framework="" version="" source="mega/utils/progmem.h" changed="False" content-id="Atmel.ASF" />
+    <file path="src/ASF/mega/utils/status_codes.h" framework="" version="" source="mega/utils/status_codes.h" changed="False" content-id="Atmel.ASF" />
+  </files>
+  <documentation help="https://asf.microchip.com/docs/3.49.1/common.applications.user_application.stk600-mega.atmega128/html/index.html" />
   <offline-documentation help="" />
   <dependencies>
     <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.49.1" />
   </dependencies>
+  <project id="common.applications.user_application.stk600-mega.atmega128" value="Add" config="" content-id="Atmel.ASF" />
+  <board id="board.stk600-mega.atmega128" value="Add" config="" content-id="Atmel.ASF" />
 </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
@@ -64,8 +87,20 @@
     <ListValues>
       <Value>(%24DeviceMacro)</Value>
       <Value>NDEBUG</Value>
+      <Value>(%24DeviceMacro)</Value>
+      <Value>BOARD=STK600_MEGA</Value>
     </ListValues>
   </com.microchip.xc8.compiler.symbols.DefSymbols>
+  <com.microchip.xc8.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/mega/utils/preprocessor</Value>
+      <Value>../src/ASF/mega/utils</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </com.microchip.xc8.compiler.directories.IncludePaths>
   <com.microchip.xc8.compiler.optimization.level>Optimize for size (-Os)</com.microchip.xc8.compiler.optimization.level>
   <com.microchip.xc8.compiler.optimization.PackStructureMembers>True</com.microchip.xc8.compiler.optimization.PackStructureMembers>
   <com.microchip.xc8.compiler.optimization.AllocateBytesNeededForEnum>True</com.microchip.xc8.compiler.optimization.AllocateBytesNeededForEnum>
@@ -75,6 +110,16 @@
       <Value>libm</Value>
     </ListValues>
   </com.microchip.xc8.linker.libraries.Libraries>
+  <com.microchip.xc8.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/mega/utils/preprocessor</Value>
+      <Value>../src/ASF/mega/utils</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </com.microchip.xc8.assembler.general.IncludePaths>
 </com.microchip.xc8>
     </ToolchainSettings>
   </PropertyGroup>
@@ -87,8 +132,20 @@
     <ListValues>
       <Value>(%24DeviceMacro)</Value>
       <Value>DEBUG</Value>
+      <Value>(%24DeviceMacro)</Value>
+      <Value>BOARD=STK600_MEGA</Value>
     </ListValues>
   </com.microchip.xc8.compiler.symbols.DefSymbols>
+  <com.microchip.xc8.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/mega/utils/preprocessor</Value>
+      <Value>../src/ASF/mega/utils</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </com.microchip.xc8.compiler.directories.IncludePaths>
   <com.microchip.xc8.compiler.optimization.level>Optimize debugging experience (-Og)</com.microchip.xc8.compiler.optimization.level>
   <com.microchip.xc8.compiler.optimization.PackStructureMembers>True</com.microchip.xc8.compiler.optimization.PackStructureMembers>
   <com.microchip.xc8.compiler.optimization.AllocateBytesNeededForEnum>True</com.microchip.xc8.compiler.optimization.AllocateBytesNeededForEnum>
@@ -99,6 +156,16 @@
       <Value>libm</Value>
     </ListValues>
   </com.microchip.xc8.linker.libraries.Libraries>
+  <com.microchip.xc8.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/mega/utils/preprocessor</Value>
+      <Value>../src/ASF/mega/utils</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </com.microchip.xc8.assembler.general.IncludePaths>
   <com.microchip.xc8.assembler.debugging.DebugLevel>Default (-Wa,-g)</com.microchip.xc8.assembler.debugging.DebugLevel>
 </com.microchip.xc8>
     </ToolchainSettings>

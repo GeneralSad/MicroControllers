@@ -9,25 +9,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   2 .comment      0000002f  00000000  00000000  00000138  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 00000028  00000000  00000000  00000167  2**0
+  3 .debug_aranges 00000030  00000000  00000000  00000167  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   00000b1c  00000000  00000000  0000018f  2**0
+  4 .debug_info   00000b38  00000000  00000000  00000197  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 00000825  00000000  00000000  00000cab  2**0
+  5 .debug_abbrev 00000844  00000000  00000000  00000ccf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   00000294  00000000  00000000  000014d0  2**0
+  6 .debug_line   000002d2  00000000  00000000  00001513  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  00000034  00000000  00000000  00001764  2**2
+  7 .debug_frame  00000044  00000000  00000000  000017e8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    0000027d  00000000  00000000  00001798  2**0
+  8 .debug_str    0000027d  00000000  00000000  0000182c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    0000006a  00000000  00000000  00001a15  2**0
+  9 .debug_loc    0000006a  00000000  00000000  00001aa9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000018  00000000  00000000  00001a7f  2**0
+ 10 .debug_ranges 00000020  00000000  00000000  00001b13  2**0
                   CONTENTS, READONLY, DEBUGGING
  11 .text         00000004  000000e0  000000e0  00000134  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001a98  2**2
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001b34  2**2
                   CONTENTS, READONLY, DEBUGGING
  13 .text.wait    0000001e  000000a4  000000a4  000000f8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
@@ -139,17 +139,17 @@ int main(void)
   c2:	8f ef       	ldi	r24, 0xFF	; 255
   c4:	81 bb       	out	0x11, r24	; 17
 	
-    while(1)
-    {
-        PORTD = 0xAA;
-  c6:	8a ea       	ldi	r24, 0xAA	; 170
+	while(1)
+	{
+		PORTD = 0x80;
+  c6:	80 e8       	ldi	r24, 0x80	; 128
   c8:	82 bb       	out	0x12, r24	; 18
 		wait(250);
   ca:	8a ef       	ldi	r24, 0xFA	; 250
   cc:	90 e0       	ldi	r25, 0x00	; 0
   ce:	0e 94 52 00 	call	0xa4	; 0xa4 <__data_load_end>
-		PORTD = 0x55;
-  d2:	85 e5       	ldi	r24, 0x55	; 85
+		PORTD = 0x40;
+  d2:	80 e4       	ldi	r24, 0x40	; 64
   d4:	82 bb       	out	0x12, r24	; 18
 		wait(250);
   d6:	8a ef       	ldi	r24, 0xFA	; 250

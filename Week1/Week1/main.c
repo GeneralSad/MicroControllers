@@ -22,13 +22,29 @@ int main(void)
 {
 	DDRD = 0b11111111;
 	
-    while(1)
-    {
-        PORTD = 0xAA;
+	while(1)
+	{
+		PORTD = 0x80;
 		wait(250);
-		PORTD = 0x55;
+		PORTD = 0x40;
 		wait(250);
-    }
+	}
+	
+	return 1;
+	
+}
+
+int opdrachtb2(void)
+{
+	DDRD = 0b11111111;
+	
+	while(1)
+	{
+		PORTD = 0x80;
+		wait(250);
+		PORTD = 0x40;
+		wait(250);
+	}
 	
 	return 1;
 	
