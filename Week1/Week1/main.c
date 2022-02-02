@@ -33,11 +33,76 @@ PATTERN_STRUCT pattern[] = {
 	{0x00, 0x00}
 };
 
-int opdrachtb5(void);
 
-int main( void )
+
+
+int opdrachtb6(void)
 {
-	opdrachtb5();
+		DDRD = 0b11111111;					// PORTD.7 input all other bits output
+		DDRC = 0b11111110;
+		int buttonPressed = 1;
+		int fastCount = 0;
+		int countTime = 1000;
+		int count = 0;
+		int countingUp = 1;
+		
+		while (1) 
+		{
+			if (buttonPressed != (PINC & 0x01))
+			{
+				buttonPressed = PINC & 0x01;
+				if (buttonPressed)
+				{
+					fastCount = !fastCount;
+				}			
+				count = 0;
+			}
+			
+			countTime = 1000;
+			if (fastCount)
+			{
+				countTime = 100;
+			}
+
+			if (count > countTime|| count < 0)
+			{
+				countingUp = !countingUp;
+			}
+			
+			if (countingUp)
+			{
+				PORTD = 0x00;
+				count ++;
+			}else{
+				PORTD = 0x80;
+				count --;
+			}
+			wait(1);
+		}
+		return 1;
+}
+
+int opdrachtb5( void )
+{
+	DDRD = 0b11111111;					// PORTD all output
+	
+	
+	
+	while (1==1) {
+		// Set index to begin of pattern array
+		int index = 0;
+		// as long as delay has meaningful content
+		while( pattern[index].delay != 0 ) {
+			// Write data to PORTD
+			PORTD = pattern[index].data;
+			// wait
+			wait(pattern[index].delay);
+			// increment for next round
+			index++;
+		}
+	}
+
+	return 1;
 }
 
 int opdrachtb2(void)
@@ -107,22 +172,104 @@ int opdrachtb4(void)
 	return 1;
 }
 
-int opdrachtb5(void)
-{
-	DDRD = 0b11111111;					// PORTD all output
 
-	while (1==1) {
-	// Set index to begin of pattern array
-		int index = 0;
-	// as long as delay has meaningful content
-		while( pattern[index].delay != 0 ) {
-			// Write data to PORTD
-			PORTD = pattern[index].data;
-			// wait
-			wait(pattern[index].delay);
-			// increment for next round
-			index++;
-			}
+
+
+
+void Staart();
+void S1();
+void S2();
+void S3();
+void End();
+void (*currentState)() = Staart;
+int main(void)
+{
+	DDRD = 0b00011111;
+	DDRC = 0b11111111;	
+	while (1)
+	{
+		currentState();
+		wait(1);
 	}
-	return 1;
 }
+
+
+ void Staart()
+{
+	PORTC = 0b00000001;
+	
+	if (PIND & 0b01000000)
+	{
+		currentState = S1;
+	}
+	
+	if (PIND & 0b00100000)
+	{
+		currentState = S2;
+	}
+}
+
+ void S1()
+{
+	PORTC = 0b00000010;
+	
+	if (PIND & 0b10000000)
+	{
+		currentState = Staart;
+	}
+	
+	if (PIND & 0b00100000)
+	{
+		currentState = S2;
+	}
+
+}
+
+ void S2()
+{
+	PORTC = 0b00000100;
+	
+	if (PIND & 0b10000000)
+	{
+		currentState = Staart;
+	}
+	
+	if (PIND & 0b01000000)
+	{
+		currentState = S1;
+	}
+	
+	if (PIND & 0b00100000)
+	{
+		currentState = S3;
+	}
+	
+}
+
+ void S3()
+{
+	PORTC = 0b00001000;
+	if (PIND & 0b10000000)
+	{
+		currentState = Staart;
+	}
+	
+	if ((PIND & 0b01000000) || (PIND & 0b00100000))
+	{
+		currentState = End;
+	}
+	
+	
+}
+
+ void End()
+{
+	PORTC = 0b00010000;
+	if (PIND & 0b10000000)
+	{
+		currentState = Staart;
+	}
+	
+}
+
+
