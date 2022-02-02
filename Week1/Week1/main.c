@@ -5,10 +5,23 @@
  *  Author: leonv
  */ 
 
-#include <xc.h>
+#define F_CPU 8e6
+
+// #include <xc.h>
+#include <avr/io.h>
+#include <util/delay.h>
+
+void wait (int ms) {
+	for (int i = 0; i < ms; i++)
+	{
+		_delay_ms(1);
+	}
+}
 
 int main(void)
 {
+	DDRD = 0b11111111;
+	
     while(1)
     {
         PORTD = 0xAA;
@@ -16,4 +29,7 @@ int main(void)
 		PORTD = 0x55;
 		wait(250);
     }
+	
+	return 1;
+	
 }
