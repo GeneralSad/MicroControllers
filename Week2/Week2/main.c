@@ -35,31 +35,6 @@ void wait( int ms ) {
 	}
 }
 
-/*****************************************************************
-short:			ISR INT0
-inputs:
-outputs:
-notes:			Set PORTD.5
-Version :    	DMK, Initial code
-*******************************************************************/
-
-
-/******************************************************************
-short:			ISR INT1
-inputs:
-outputs:
-notes:			Clear PORTD.5
-Version :    	DMK, Initial code
-*******************************************************************/
-
-
-/******************************************************************
-short:			main() loop, entry point of executable
-inputs:
-outputs:
-notes:			Slow background task after init ISR
-Version :    	DMK, Initial code
-*******************************************************************/
 
 typedef struct {
 	unsigned char data;
@@ -70,6 +45,20 @@ PATTERN_STRUCT pattern[] = {
 	{0b01110111}, {0b01111100}, {0b00111001}, {0b01011110}, {0b01111001}, {0b01110001}
 };
 
+typedef struct {
+	unsigned char data;
+	unsigned int delay ;
+} PATTERN_STRUCT2;
+
+PATTERN_STRUCT2 pattern2[] = {
+	{0x00, 100}, {0x01, 100}, {0x02, 100}, {0x04, 100}, {0x10, 100}, {0x20, 100}, {0x40, 100}, {0x80, 100}, //een kant op
+	{0x80, 100}, {0x40, 100}, {0x20, 100}, {0x10, 100}, {0x4, 100}, {0x02, 100}, {0x01, 100}, {0x00, 100}, //andere kant op
+	{0xAA,  50}, {0x55,  50},{0xAA,  50}, {0x55,  50},{0xAA,  50}, {0x55,  50},{0x00, 100}, //knipperen
+	{0x81, 100}, {0x42, 100}, {0x24, 100}, {0x18, 100}, // naar midden vanuit buiten
+	{0x18, 100}, {0x24, 100}, {0x42, 100}, {0x81, 100}, //naar buiten vanuit midden
+	{0x0F, 200}, {0xF0, 200}, {0x0F, 200}, {0xF0, 200}, // half om half
+	{0x00, 0x00}
+};
 
 void display(int digit) {
 	if ((digit >= 0) && (digit <= 15)) {
@@ -79,6 +68,12 @@ void display(int digit) {
 	}
 	
 }
+
+
+
+
+
+
 
 unsigned int number = 0;
 int button1 = 0;
@@ -92,7 +87,32 @@ ISR( INT1_vect ) {
 	button1 = 1;
 }
 
-int main( void ) {
+
+
+int main(void)
+{
+DDRE = 0xFF;
+
+
+while(1) {
+	display(number);
+	
+	int index = 0;
+	while( pattern2[index].delay != 0 ) {
+		// Write data to PORTD
+		PORTE = pattern2[index].data;
+		// wait
+		wait(pattern2[index].delay);
+		// increment for next round
+		index++;
+	}
+	wait(1);
+}
+
+return 1;
+}
+
+int opdrachtB3( void ) {
 	DDRD = 0xF0;
 	DDRE = 0xFF;
 	

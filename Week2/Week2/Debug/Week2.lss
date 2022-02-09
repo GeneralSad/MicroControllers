@@ -3,97 +3,99 @@ Week2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00000256  000002ea  2**0
+  0 .data         00000000  00800100  0000024a  000002de  2**0
                   ALLOC, LOAD, DATA
   1 .text         000000f0  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      0000002f  00000000  00000000  000002ea  2**0
+  2 .comment      0000002f  00000000  00000000  000002de  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 00000048  00000000  00000000  00000319  2**0
+  3 .debug_aranges 00000050  00000000  00000000  0000030d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   00000c5f  00000000  00000000  00000361  2**0
+  4 .debug_info   00000cf4  00000000  00000000  0000035d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 000008b3  00000000  00000000  00000fc0  2**0
+  5 .debug_abbrev 000008b3  00000000  00000000  00001051  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   000003ab  00000000  00000000  00001873  2**0
+  6 .debug_line   000003f7  00000000  00000000  00001904  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  0000009c  00000000  00000000  00001c20  2**2
+  7 .debug_frame  000000ac  00000000  00000000  00001cfc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    0000027d  00000000  00000000  00001cbc  2**0
+  8 .debug_str    0000027d  00000000  00000000  00001da8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    00000145  00000000  00000000  00001f39  2**0
+  9 .debug_loc    00000169  00000000  00000000  00002025  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000038  00000000  00000000  0000207e  2**0
+ 10 .debug_ranges 00000040  00000000  00000000  0000218e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .text         00000004  00000242  00000242  000002d6  2**1
+ 11 .text         00000004  000001ca  000001ca  0000025e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000020b8  2**2
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000021d0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .text.wait    0000001e  0000020a  0000020a  0000029e  2**1
+ 13 .text.wait    0000001e  00000192  00000192  00000226  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .text.display 0000001a  00000228  00000228  000002bc  2**1
+ 14 .text.display 0000001a  000001b0  000001b0  00000244  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 15 .text.__vector_3 00000028  000001ba  000001ba  0000024e  2**1
+ 15 .text.__vector_3 00000028  00000142  00000142  000001d6  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .text.__vector_2 00000028  000001e2  000001e2  00000276  2**1
+ 16 .text.__vector_2 00000028  0000016a  0000016a  000001fe  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 17 .text.main    000000ca  000000f0  000000f0  00000184  2**1
+ 17 .text.main    00000052  000000f0  000000f0  00000184  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 18 .bss.button2  00000002  00800110  00800110  000002ea  2**0
+ 18 .bss.button2  00000002  0080017c  0080017c  000002de  2**0
                   ALLOC
- 19 .bss.button1  00000002  00800112  00800112  000002ea  2**0
+ 19 .bss.button1  00000002  0080017e  0080017e  000002de  2**0
                   ALLOC
- 20 .bss.number   00000002  00800114  00800114  000002ea  2**0
+ 20 .bss.number   00000002  00800180  00800180  000002de  2**0
                   ALLOC
- 21 .data.pattern 00000010  00800100  00000246  000002da  2**0
+ 21 .data.pattern2 0000006c  00800100  000001ce  00000262  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 22 .data.pattern 00000010  0080016c  0000023a  000002ce  2**0
                   CONTENTS, ALLOC, LOAD, DATA
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 4c 00 	jmp	0x98	; 0x98 <__ctors_end>
-   4:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-   8:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__vector_2>
-   c:	0c 94 dd 00 	jmp	0x1ba	; 0x1ba <__vector_3>
-  10:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  14:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  18:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  1c:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  20:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  24:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  28:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  2c:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  30:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  34:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  38:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  3c:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  40:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  44:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  48:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  4c:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  50:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  54:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  58:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  5c:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  60:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  64:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  68:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  6c:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  70:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  74:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  78:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  7c:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  80:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  84:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
-  88:	0c 94 21 01 	jmp	0x242	; 0x242 <__bad_interrupt>
+   4:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+   8:	0c 94 b5 00 	jmp	0x16a	; 0x16a <__vector_2>
+   c:	0c 94 a1 00 	jmp	0x142	; 0x142 <__vector_3>
+  10:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  14:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  18:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  1c:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  20:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  24:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  28:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  2c:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  30:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  34:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  38:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  3c:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  40:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  44:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  48:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  4c:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  50:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  54:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  58:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  5c:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  60:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  64:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  68:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  6c:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  70:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  74:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  78:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  7c:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  80:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  84:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
+  88:	0c 94 e5 00 	jmp	0x1ca	; 0x1ca <__bad_interrupt>
 
 0000008c <.dinit>:
   8c:	01 00       	.word	0x0001	; ????
-  8e:	01 10       	cpse	r0, r1
-  90:	00 02       	muls	r16, r16
-  92:	46 01       	movw	r8, r12
-  94:	10 01       	movw	r2, r0
-  96:	16 80       	ldd	r1, Z+6	; 0x06
+  8e:	01 7c       	andi	r16, 0xC1	; 193
+  90:	00 01       	movw	r0, r0
+  92:	ce 01       	movw	r24, r28
+  94:	7c 01       	movw	r14, r24
+  96:	82 80       	ldd	r8, Z+2	; 0x02
 
 00000098 <__ctors_end>:
   98:	11 24       	eor	r1, r1
@@ -149,222 +151,192 @@ Disassembly of section .text:
 
 Disassembly of section .text:
 
-00000242 <__bad_interrupt>:
- 242:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+000001ca <__bad_interrupt>:
+ 1ca:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.wait:
 
-0000020a <wait>:
+00000192 <wait>:
 				clock value is set. This is used by _delay_ms inside
 				util/delay.h
 Version :    	DMK, Initial code
 *******************************************************************/
 void wait( int ms ) {
 	for (int i=0; i<ms; i++) {
- 20a:	20 e0       	ldi	r18, 0x00	; 0
- 20c:	30 e0       	ldi	r19, 0x00	; 0
- 20e:	08 c0       	rjmp	.+16     	; 0x220 <wait+0x16>
+ 192:	20 e0       	ldi	r18, 0x00	; 0
+ 194:	30 e0       	ldi	r19, 0x00	; 0
+ 196:	08 c0       	rjmp	.+16     	; 0x1a8 <wait+0x16>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 210:	ef ec       	ldi	r30, 0xCF	; 207
- 212:	f7 e0       	ldi	r31, 0x07	; 7
- 214:	31 97       	sbiw	r30, 0x01	; 1
- 216:	f1 f7       	brne	.-4      	; 0x214 <wait+0xa>
- 218:	00 c0       	rjmp	.+0      	; 0x21a <wait+0x10>
- 21a:	00 00       	nop
- 21c:	2f 5f       	subi	r18, 0xFF	; 255
- 21e:	3f 4f       	sbci	r19, 0xFF	; 255
- 220:	28 17       	cp	r18, r24
- 222:	39 07       	cpc	r19, r25
- 224:	ac f3       	brlt	.-22     	; 0x210 <wait+0x6>
+ 198:	ef ec       	ldi	r30, 0xCF	; 207
+ 19a:	f7 e0       	ldi	r31, 0x07	; 7
+ 19c:	31 97       	sbiw	r30, 0x01	; 1
+ 19e:	f1 f7       	brne	.-4      	; 0x19c <wait+0xa>
+ 1a0:	00 c0       	rjmp	.+0      	; 0x1a2 <wait+0x10>
+ 1a2:	00 00       	nop
+ 1a4:	2f 5f       	subi	r18, 0xFF	; 255
+ 1a6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1a8:	28 17       	cp	r18, r24
+ 1aa:	39 07       	cpc	r19, r25
+ 1ac:	ac f3       	brlt	.-22     	; 0x198 <wait+0x6>
 		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
 	}
 }
- 226:	08 95       	ret
+ 1ae:	08 95       	ret
 
 Disassembly of section .text.display:
 
-00000228 <display>:
-	{0b01110111}, {0b01111100}, {0b00111001}, {0b01011110}, {0b01111001}, {0b01110001}
+000001b0 <display>:
+	{0x0F, 200}, {0xF0, 200}, {0x0F, 200}, {0xF0, 200}, // half om half
+	{0x00, 0x00}
 };
-
 
 void display(int digit) {
 	if ((digit >= 0) && (digit <= 15)) {
- 228:	80 31       	cpi	r24, 0x10	; 16
- 22a:	91 05       	cpc	r25, r1
- 22c:	30 f4       	brcc	.+12     	; 0x23a <display+0x12>
+ 1b0:	80 31       	cpi	r24, 0x10	; 16
+ 1b2:	91 05       	cpc	r25, r1
+ 1b4:	30 f4       	brcc	.+12     	; 0x1c2 <display+0x12>
 		PORTE = pattern[digit].data;
- 22e:	fc 01       	movw	r30, r24
- 230:	e0 50       	subi	r30, 0x00	; 0
- 232:	ff 4f       	sbci	r31, 0xFF	; 255
- 234:	80 81       	ld	r24, Z
- 236:	83 b9       	out	0x03, r24	; 3
- 238:	08 95       	ret
+ 1b6:	fc 01       	movw	r30, r24
+ 1b8:	e4 59       	subi	r30, 0x94	; 148
+ 1ba:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1bc:	80 81       	ld	r24, Z
+ 1be:	83 b9       	out	0x03, r24	; 3
+ 1c0:	08 95       	ret
 		} else {
 		PORTE = pattern[14].data;
- 23a:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <__DATA_REGION_ORIGIN__+0xe>
- 23e:	83 b9       	out	0x03, r24	; 3
- 240:	08 95       	ret
+ 1c2:	80 91 7a 01 	lds	r24, 0x017A	; 0x80017a <pattern+0xe>
+ 1c6:	83 b9       	out	0x03, r24	; 3
+ 1c8:	08 95       	ret
 
 Disassembly of section .text.__vector_3:
 
-000001ba <__vector_3>:
+00000142 <__vector_3>:
 
 unsigned int number = 0;
 int button1 = 0;
 int button2 = 0;
 
 ISR( INT2_vect ) {
- 1ba:	1f 92       	push	r1
- 1bc:	0f 92       	push	r0
- 1be:	0f b6       	in	r0, 0x3f	; 63
- 1c0:	0f 92       	push	r0
- 1c2:	11 24       	eor	r1, r1
- 1c4:	8f 93       	push	r24
- 1c6:	9f 93       	push	r25
+ 142:	1f 92       	push	r1
+ 144:	0f 92       	push	r0
+ 146:	0f b6       	in	r0, 0x3f	; 63
+ 148:	0f 92       	push	r0
+ 14a:	11 24       	eor	r1, r1
+ 14c:	8f 93       	push	r24
+ 14e:	9f 93       	push	r25
 	button2 = 1;
- 1c8:	81 e0       	ldi	r24, 0x01	; 1
- 1ca:	90 e0       	ldi	r25, 0x00	; 0
- 1cc:	90 93 11 01 	sts	0x0111, r25	; 0x800111 <button2+0x1>
- 1d0:	80 93 10 01 	sts	0x0110, r24	; 0x800110 <button2>
+ 150:	81 e0       	ldi	r24, 0x01	; 1
+ 152:	90 e0       	ldi	r25, 0x00	; 0
+ 154:	90 93 7d 01 	sts	0x017D, r25	; 0x80017d <button2+0x1>
+ 158:	80 93 7c 01 	sts	0x017C, r24	; 0x80017c <button2>
 }
- 1d4:	9f 91       	pop	r25
- 1d6:	8f 91       	pop	r24
- 1d8:	0f 90       	pop	r0
- 1da:	0f be       	out	0x3f, r0	; 63
- 1dc:	0f 90       	pop	r0
- 1de:	1f 90       	pop	r1
- 1e0:	18 95       	reti
+ 15c:	9f 91       	pop	r25
+ 15e:	8f 91       	pop	r24
+ 160:	0f 90       	pop	r0
+ 162:	0f be       	out	0x3f, r0	; 63
+ 164:	0f 90       	pop	r0
+ 166:	1f 90       	pop	r1
+ 168:	18 95       	reti
 
 Disassembly of section .text.__vector_2:
 
-000001e2 <__vector_2>:
+0000016a <__vector_2>:
 
 ISR( INT1_vect ) {
- 1e2:	1f 92       	push	r1
- 1e4:	0f 92       	push	r0
- 1e6:	0f b6       	in	r0, 0x3f	; 63
- 1e8:	0f 92       	push	r0
- 1ea:	11 24       	eor	r1, r1
- 1ec:	8f 93       	push	r24
- 1ee:	9f 93       	push	r25
+ 16a:	1f 92       	push	r1
+ 16c:	0f 92       	push	r0
+ 16e:	0f b6       	in	r0, 0x3f	; 63
+ 170:	0f 92       	push	r0
+ 172:	11 24       	eor	r1, r1
+ 174:	8f 93       	push	r24
+ 176:	9f 93       	push	r25
 	button1 = 1;
- 1f0:	81 e0       	ldi	r24, 0x01	; 1
- 1f2:	90 e0       	ldi	r25, 0x00	; 0
- 1f4:	90 93 13 01 	sts	0x0113, r25	; 0x800113 <button1+0x1>
- 1f8:	80 93 12 01 	sts	0x0112, r24	; 0x800112 <button1>
+ 178:	81 e0       	ldi	r24, 0x01	; 1
+ 17a:	90 e0       	ldi	r25, 0x00	; 0
+ 17c:	90 93 7f 01 	sts	0x017F, r25	; 0x80017f <button1+0x1>
+ 180:	80 93 7e 01 	sts	0x017E, r24	; 0x80017e <button1>
 }
- 1fc:	9f 91       	pop	r25
- 1fe:	8f 91       	pop	r24
- 200:	0f 90       	pop	r0
- 202:	0f be       	out	0x3f, r0	; 63
- 204:	0f 90       	pop	r0
- 206:	1f 90       	pop	r1
- 208:	18 95       	reti
+ 184:	9f 91       	pop	r25
+ 186:	8f 91       	pop	r24
+ 188:	0f 90       	pop	r0
+ 18a:	0f be       	out	0x3f, r0	; 63
+ 18c:	0f 90       	pop	r0
+ 18e:	1f 90       	pop	r1
+ 190:	18 95       	reti
 
 Disassembly of section .text.main:
 
 000000f0 <main>:
 
-int main( void ) {
-	DDRD = 0xF0;
-  f0:	80 ef       	ldi	r24, 0xF0	; 240
-  f2:	81 bb       	out	0x11, r24	; 17
-	DDRE = 0xFF;
-  f4:	8f ef       	ldi	r24, 0xFF	; 255
-  f6:	82 b9       	out	0x02, r24	; 2
-	
-	EICRA |= 0b00111100;			// INT1 falling edge, INT0 rising edge
-  f8:	ea e6       	ldi	r30, 0x6A	; 106
-  fa:	f0 e0       	ldi	r31, 0x00	; 0
-  fc:	80 81       	ld	r24, Z
-  fe:	8c 63       	ori	r24, 0x3C	; 60
- 100:	80 83       	st	Z, r24
-	EIMSK |= 0x06;			// Enable INT2 & INT1
- 102:	89 b7       	in	r24, 0x39	; 57
- 104:	86 60       	ori	r24, 0x06	; 6
- 106:	89 bf       	out	0x39, r24	; 57
+
+
+int main(void)
+{
+DDRE = 0xFF;
+  f0:	8f ef       	ldi	r24, 0xFF	; 255
+  f2:	82 b9       	out	0x02, r24	; 2
+
+
+while(1) {
 	display(number);
- 108:	80 91 14 01 	lds	r24, 0x0114	; 0x800114 <number>
- 10c:	90 91 15 01 	lds	r25, 0x0115	; 0x800115 <number+0x1>
- 110:	0e 94 14 01 	call	0x228	; 0x228 <display>
-	sei();
- 114:	78 94       	sei
+  f4:	80 91 80 01 	lds	r24, 0x0180	; 0x800180 <number>
+  f8:	90 91 81 01 	lds	r25, 0x0181	; 0x800181 <number+0x1>
+  fc:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <display>
 	
-	while(1) {
-		if ((button1 == 1) && (button2 == 1)) 
- 116:	80 91 12 01 	lds	r24, 0x0112	; 0x800112 <button1>
- 11a:	90 91 13 01 	lds	r25, 0x0113	; 0x800113 <button1+0x1>
- 11e:	81 30       	cpi	r24, 0x01	; 1
- 120:	91 05       	cpc	r25, r1
- 122:	61 f4       	brne	.+24     	; 0x13c <main+0x4c>
- 124:	20 91 10 01 	lds	r18, 0x0110	; 0x800110 <button2>
- 128:	30 91 11 01 	lds	r19, 0x0111	; 0x800111 <button2+0x1>
- 12c:	21 30       	cpi	r18, 0x01	; 1
- 12e:	31 05       	cpc	r19, r1
- 130:	29 f4       	brne	.+10     	; 0x13c <main+0x4c>
-		{
-			number = 0;
- 132:	10 92 15 01 	sts	0x0115, r1	; 0x800115 <number+0x1>
- 136:	10 92 14 01 	sts	0x0114, r1	; 0x800114 <number>
- 13a:	2c c0       	rjmp	.+88     	; 0x194 <main+0xa4>
-		} else if (button1 == 1)
- 13c:	01 97       	sbiw	r24, 0x01	; 1
- 13e:	a1 f4       	brne	.+40     	; 0x168 <main+0x78>
-		{
-			number >= 16 ? number = 16 : number++;
- 140:	80 91 14 01 	lds	r24, 0x0114	; 0x800114 <number>
- 144:	90 91 15 01 	lds	r25, 0x0115	; 0x800115 <number+0x1>
- 148:	80 31       	cpi	r24, 0x10	; 16
- 14a:	91 05       	cpc	r25, r1
- 14c:	38 f0       	brcs	.+14     	; 0x15c <main+0x6c>
- 14e:	80 e1       	ldi	r24, 0x10	; 16
- 150:	90 e0       	ldi	r25, 0x00	; 0
- 152:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <number+0x1>
- 156:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <number>
- 15a:	1c c0       	rjmp	.+56     	; 0x194 <main+0xa4>
- 15c:	01 96       	adiw	r24, 0x01	; 1
- 15e:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <number+0x1>
- 162:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <number>
- 166:	16 c0       	rjmp	.+44     	; 0x194 <main+0xa4>
-		} else if (button2 == 1)
- 168:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <button2>
- 16c:	90 91 11 01 	lds	r25, 0x0111	; 0x800111 <button2+0x1>
- 170:	01 97       	sbiw	r24, 0x01	; 1
- 172:	81 f4       	brne	.+32     	; 0x194 <main+0xa4>
-		{
-			number <= 0 ? number = 0 : number--;
- 174:	80 91 14 01 	lds	r24, 0x0114	; 0x800114 <number>
- 178:	90 91 15 01 	lds	r25, 0x0115	; 0x800115 <number+0x1>
- 17c:	00 97       	sbiw	r24, 0x00	; 0
- 17e:	29 f4       	brne	.+10     	; 0x18a <main+0x9a>
- 180:	10 92 15 01 	sts	0x0115, r1	; 0x800115 <number+0x1>
- 184:	10 92 14 01 	sts	0x0114, r1	; 0x800114 <number>
- 188:	05 c0       	rjmp	.+10     	; 0x194 <main+0xa4>
- 18a:	01 97       	sbiw	r24, 0x01	; 1
- 18c:	90 93 15 01 	sts	0x0115, r25	; 0x800115 <number+0x1>
- 190:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <number>
-		}
-		
-		button1 = 0;
- 194:	10 92 13 01 	sts	0x0113, r1	; 0x800113 <button1+0x1>
- 198:	10 92 12 01 	sts	0x0112, r1	; 0x800112 <button1>
-		button2 = 0;
- 19c:	10 92 11 01 	sts	0x0111, r1	; 0x800111 <button2+0x1>
- 1a0:	10 92 10 01 	sts	0x0110, r1	; 0x800110 <button2>
-		wait(10);
- 1a4:	8a e0       	ldi	r24, 0x0A	; 10
- 1a6:	90 e0       	ldi	r25, 0x00	; 0
- 1a8:	0e 94 05 01 	call	0x20a	; 0x20a <wait>
-		
-		display(number);
- 1ac:	80 91 14 01 	lds	r24, 0x0114	; 0x800114 <number>
- 1b0:	90 91 15 01 	lds	r25, 0x0115	; 0x800115 <number+0x1>
- 1b4:	0e 94 14 01 	call	0x228	; 0x228 <display>
+	int index = 0;
+ 100:	c0 e0       	ldi	r28, 0x00	; 0
+ 102:	d0 e0       	ldi	r29, 0x00	; 0
+	while( pattern2[index].delay != 0 ) {
+ 104:	0e c0       	rjmp	.+28     	; 0x122 <main+0x32>
+		// Write data to PORTD
+		PORTE = pattern2[index].data;
+ 106:	fe 01       	movw	r30, r28
+ 108:	ee 0f       	add	r30, r30
+ 10a:	ff 1f       	adc	r31, r31
+ 10c:	ec 0f       	add	r30, r28
+ 10e:	fd 1f       	adc	r31, r29
+ 110:	e0 50       	subi	r30, 0x00	; 0
+ 112:	ff 4f       	sbci	r31, 0xFF	; 255
+ 114:	80 81       	ld	r24, Z
+ 116:	83 b9       	out	0x03, r24	; 3
+		// wait
+		wait(pattern2[index].delay);
+ 118:	81 81       	ldd	r24, Z+1	; 0x01
+ 11a:	92 81       	ldd	r25, Z+2	; 0x02
+ 11c:	0e 94 c9 00 	call	0x192	; 0x192 <wait>
+		// increment for next round
+		index++;
+ 120:	21 96       	adiw	r28, 0x01	; 1
+
+while(1) {
+	display(number);
+	
+	int index = 0;
+	while( pattern2[index].delay != 0 ) {
+ 122:	fe 01       	movw	r30, r28
+ 124:	ee 0f       	add	r30, r30
+ 126:	ff 1f       	adc	r31, r31
+ 128:	ec 0f       	add	r30, r28
+ 12a:	fd 1f       	adc	r31, r29
+ 12c:	e0 50       	subi	r30, 0x00	; 0
+ 12e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 130:	81 81       	ldd	r24, Z+1	; 0x01
+ 132:	92 81       	ldd	r25, Z+2	; 0x02
+ 134:	89 2b       	or	r24, r25
+ 136:	39 f7       	brne	.-50     	; 0x106 <main+0x16>
+		// wait
+		wait(pattern2[index].delay);
+		// increment for next round
+		index++;
 	}
- 1b8:	ae cf       	rjmp	.-164    	; 0x116 <main+0x26>
+	wait(1);
+ 138:	81 e0       	ldi	r24, 0x01	; 1
+ 13a:	90 e0       	ldi	r25, 0x00	; 0
+ 13c:	0e 94 c9 00 	call	0x192	; 0x192 <wait>
+}
+ 140:	d9 cf       	rjmp	.-78     	; 0xf4 <main+0x4>
