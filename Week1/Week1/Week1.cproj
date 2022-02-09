@@ -63,19 +63,34 @@
   <board id="board.stk600-mega.atmega128" value="Add" config="" content-id="Atmel.ASF" />
 </framework-data>
     </AsfFrameworkConfig>
-    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
-    <avrtoolserialnumber />
+    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
+    <avrtoolserialnumber>J41800084321</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9702</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
-      <ToolOptions xmlns="">
+      <ToolOptions>
         <InterfaceProperties>
         </InterfaceProperties>
+        <InterfaceName>
+        </InterfaceName>
       </ToolOptions>
-      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
-      <ToolNumber xmlns="">
+      <ToolType>com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber>
       </ToolNumber>
-      <ToolName xmlns="">Simulator</ToolName>
+      <ToolName>Simulator</ToolName>
     </com_atmel_avrdbg_tool_simulator>
+    <avrtoolinterface>JTAG</avrtoolinterface>
+    <com_atmel_avrdbg_tool_atmelice>
+      <ToolOptions>
+        <InterfaceProperties>
+          <JtagDbgClock>2000000</JtagDbgClock>
+        </InterfaceProperties>
+        <InterfaceName>JTAG</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
+      <ToolNumber>J41800084321</ToolNumber>
+      <ToolName>Atmel-ICE</ToolName>
+    </com_atmel_avrdbg_tool_atmelice>
+    <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>

@@ -1,0 +1,227 @@
+
+Week2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  0000017c  2**0
+                  ALLOC, LOAD, DATA
+  1 .text         000000a4  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000002f  00000000  00000000  0000017c  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000038  00000000  00000000  000001ab  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000b05  00000000  00000000  000001e3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000830  00000000  00000000  00000ce8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000002cb  00000000  00000000  00001518  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000074  00000000  00000000  000017e4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000027d  00000000  00000000  00001858  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000000e2  00000000  00000000  00001ad5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000028  00000000  00000000  00001bb7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .text         00000004  00000124  00000124  00000178  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001be0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .text.wait    0000001e  000000ca  000000ca  0000011e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.__vector_1 0000001e  000000e8  000000e8  0000013c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.__vector_2 0000001e  00000106  00000106  0000015a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.main    00000026  000000a4  000000a4  000000f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 74 00 	jmp	0xe8	; 0xe8 <__vector_1>
+   8:	0c 94 83 00 	jmp	0x106	; 0x106 <__vector_2>
+   c:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  10:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  14:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  18:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  1c:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  20:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  24:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  28:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  2c:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  30:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  34:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  38:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  3c:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  40:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  44:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  48:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  4c:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  50:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  54:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  58:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  5c:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  60:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  64:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  68:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  6c:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  70:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  74:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  78:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  7c:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  80:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  84:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+  88:	0c 94 92 00 	jmp	0x124	; 0x124 <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+  98:	0e 94 52 00 	call	0xa4	; 0xa4 <_etext>
+  9c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <_exit>
+
+000000a0 <_exit>:
+  a0:	f8 94       	cli
+
+000000a2 <__stop_program>:
+  a2:	ff cf       	rjmp	.-2      	; 0xa2 <__stop_program>
+
+Disassembly of section .text:
+
+00000124 <__bad_interrupt>:
+ 124:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.wait:
+
+000000ca <wait>:
+				clock value is set. This is used by _delay_ms inside
+				util/delay.h
+Version :    	DMK, Initial code
+*******************************************************************/
+void wait( int ms ) {
+	for (int i=0; i<ms; i++) {
+  ca:	20 e0       	ldi	r18, 0x00	; 0
+  cc:	30 e0       	ldi	r19, 0x00	; 0
+  ce:	08 c0       	rjmp	.+16     	; 0xe0 <wait+0x16>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  d0:	ef ec       	ldi	r30, 0xCF	; 207
+  d2:	f7 e0       	ldi	r31, 0x07	; 7
+  d4:	31 97       	sbiw	r30, 0x01	; 1
+  d6:	f1 f7       	brne	.-4      	; 0xd4 <wait+0xa>
+  d8:	00 c0       	rjmp	.+0      	; 0xda <wait+0x10>
+  da:	00 00       	nop
+  dc:	2f 5f       	subi	r18, 0xFF	; 255
+  de:	3f 4f       	sbci	r19, 0xFF	; 255
+  e0:	28 17       	cp	r18, r24
+  e2:	39 07       	cpc	r19, r25
+  e4:	ac f3       	brlt	.-22     	; 0xd0 <wait+0x6>
+		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
+	}
+}
+  e6:	08 95       	ret
+
+Disassembly of section .text.__vector_1:
+
+000000e8 <__vector_1>:
+inputs:
+outputs:
+notes:			Set PORTD.5
+Version :    	DMK, Initial code
+*******************************************************************/
+ISR( INT0_vect ) {
+  e8:	1f 92       	push	r1
+  ea:	0f 92       	push	r0
+  ec:	0f b6       	in	r0, 0x3f	; 63
+  ee:	0f 92       	push	r0
+  f0:	11 24       	eor	r1, r1
+  f2:	8f 93       	push	r24
+    PORTD |= (1<<5);		
+  f4:	82 b3       	in	r24, 0x12	; 18
+  f6:	80 62       	ori	r24, 0x20	; 32
+  f8:	82 bb       	out	0x12, r24	; 18
+}
+  fa:	8f 91       	pop	r24
+  fc:	0f 90       	pop	r0
+  fe:	0f be       	out	0x3f, r0	; 63
+ 100:	0f 90       	pop	r0
+ 102:	1f 90       	pop	r1
+ 104:	18 95       	reti
+
+Disassembly of section .text.__vector_2:
+
+00000106 <__vector_2>:
+inputs:
+outputs:
+notes:			Clear PORTD.5
+Version :    	DMK, Initial code
+*******************************************************************/
+ISR( INT1_vect ) {
+ 106:	1f 92       	push	r1
+ 108:	0f 92       	push	r0
+ 10a:	0f b6       	in	r0, 0x3f	; 63
+ 10c:	0f 92       	push	r0
+ 10e:	11 24       	eor	r1, r1
+ 110:	8f 93       	push	r24
+    PORTD &= ~(1<<5);		
+ 112:	82 b3       	in	r24, 0x12	; 18
+ 114:	8f 7d       	andi	r24, 0xDF	; 223
+ 116:	82 bb       	out	0x12, r24	; 18
+}
+ 118:	8f 91       	pop	r24
+ 11a:	0f 90       	pop	r0
+ 11c:	0f be       	out	0x3f, r0	; 63
+ 11e:	0f 90       	pop	r0
+ 120:	1f 90       	pop	r1
+ 122:	18 95       	reti
+
+Disassembly of section .text.main:
+
+000000a4 <main>:
+notes:			Slow background task after init ISR
+Version :    	DMK, Initial code
+*******************************************************************/
+int main( void ) {
+	// Init I/O
+	DDRD = 0xF0;			// PORTD(7:4) output, PORTD(3:0) input	
+  a4:	80 ef       	ldi	r24, 0xF0	; 240
+  a6:	81 bb       	out	0x11, r24	; 17
+
+	// Init Interrupt hardware
+	EICRA |= 0x0B;			// INT1 falling edge, INT0 rising edge
+  a8:	ea e6       	ldi	r30, 0x6A	; 106
+  aa:	f0 e0       	ldi	r31, 0x00	; 0
+  ac:	80 81       	ld	r24, Z
+  ae:	8b 60       	ori	r24, 0x0B	; 11
+  b0:	80 83       	st	Z, r24
+	EIMSK |= 0x03;			// Enable INT1 & INT0
+  b2:	89 b7       	in	r24, 0x39	; 57
+  b4:	83 60       	ori	r24, 0x03	; 3
+  b6:	89 bf       	out	0x39, r24	; 57
+	
+	// Enable global interrupt system
+	//SREG = 0x80;			// Of direct via SREG of via wrapper
+	sei();				
+  b8:	78 94       	sei
+
+	while (1) {
+		PORTD ^= (1<<7);	// Toggle PORTD.7
+  ba:	82 b3       	in	r24, 0x12	; 18
+  bc:	80 58       	subi	r24, 0x80	; 128
+  be:	82 bb       	out	0x12, r24	; 18
+		wait( 500 );								
+  c0:	84 ef       	ldi	r24, 0xF4	; 244
+  c2:	91 e0       	ldi	r25, 0x01	; 1
+  c4:	0e 94 65 00 	call	0xca	; 0xca <wait>
+  c8:	f8 cf       	rjmp	.-16     	; 0xba <main+0x16>
