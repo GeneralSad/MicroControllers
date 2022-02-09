@@ -42,8 +42,11 @@ outputs:
 notes:			Set PORTD.5
 Version :    	DMK, Initial code
 *******************************************************************/
-ISR( INT0_vect ) {
-    PORTD |= (1<<5);		
+ISR( INT1_vect ) {
+	if (PINE != 0b10000000)
+	{
+		PORTE = PINE<<1;
+	}		
 }
 
 /******************************************************************
@@ -53,8 +56,11 @@ outputs:
 notes:			Clear PORTD.5
 Version :    	DMK, Initial code
 *******************************************************************/
-ISR( INT1_vect ) {
-    PORTD &= ~(1<<5);		
+ISR( INT2_vect ) {
+    if (PINE != 0b00000001)
+    {
+	    PORTE = PINE>>1;
+    }		
 }
 
 /******************************************************************
@@ -67,10 +73,12 @@ Version :    	DMK, Initial code
 int main( void ) {
 	// Init I/O
 	DDRD = 0xF0;			// PORTD(7:4) output, PORTD(3:0) input	
+	DDRE = 0xFF;
+	PORTE = 0b00000001;
 
 	// Init Interrupt hardware
-	EICRA |= 0x0B;			// INT1 falling edge, INT0 rising edge
-	EIMSK |= 0x03;			// Enable INT1 & INT0
+	EICRA |= 0b00111100;			// INT1 falling edge, INT0 rising edge
+	EIMSK |= 0x06;			// Enable INT1 & INT0
 	
 	// Enable global interrupt system
 	//SREG = 0x80;			// Of direct via SREG of via wrapper

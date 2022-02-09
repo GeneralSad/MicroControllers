@@ -330,10 +330,10 @@ END GROUP
  .debug_abbrev  0x0000000000000000      0x718 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
  .debug_abbrev  0x0000000000000718      0x118 main.o
 
-.debug_line     0x0000000000000000      0x2cb
+.debug_line     0x0000000000000000      0x2e3
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x16d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
- .debug_line    0x000000000000016d      0x15e main.o
+ .debug_line    0x000000000000016d      0x176 main.o
 
 .debug_frame    0x0000000000000000       0x74
  *(.debug_frame)
@@ -381,58 +381,58 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x0000000000000000       0x3c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
 
-.text.main      0x00000000000000a4       0x26
- .text.main     0x00000000000000a4       0x26 main.o
+.text.main      0x00000000000000a4       0x2e
+ .text.main     0x00000000000000a4       0x2e main.o
                 0x00000000000000a4                main
 
-.text.wait      0x00000000000000ca       0x1e
- .text.wait     0x00000000000000ca       0x1e main.o
-                0x00000000000000ca                wait
-
-.text.__vector_1
-                0x00000000000000e8       0x1e
- .text.__vector_1
-                0x00000000000000e8       0x1e main.o
-                0x00000000000000e8                __vector_1
-
 .text.__vector_2
-                0x0000000000000106       0x1e
+                0x00000000000000d2       0x24
  .text.__vector_2
-                0x0000000000000106       0x1e main.o
-                0x0000000000000106                __vector_2
+                0x00000000000000d2       0x24 main.o
+                0x00000000000000d2                __vector_2
 
-.text           0x0000000000000124        0x4
- .text          0x0000000000000124        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
-                0x0000000000000124                __vector_22
-                0x0000000000000124                __vector_28
-                0x0000000000000124                __vector_32
-                0x0000000000000124                __vector_34
-                0x0000000000000124                __vector_24
-                0x0000000000000124                __vector_12
-                0x0000000000000124                __bad_interrupt
-                0x0000000000000124                __vector_6
-                0x0000000000000124                __vector_31
-                0x0000000000000124                __vector_3
-                0x0000000000000124                __vector_23
-                0x0000000000000124                __vector_30
-                0x0000000000000124                __vector_25
-                0x0000000000000124                __vector_11
-                0x0000000000000124                __vector_13
-                0x0000000000000124                __vector_17
-                0x0000000000000124                __vector_19
-                0x0000000000000124                __vector_7
-                0x0000000000000124                __vector_27
-                0x0000000000000124                __vector_5
-                0x0000000000000124                __vector_33
-                0x0000000000000124                __vector_4
-                0x0000000000000124                __vector_9
-                0x0000000000000124                __vector_21
-                0x0000000000000124                __vector_15
-                0x0000000000000124                __vector_29
-                0x0000000000000124                __vector_8
-                0x0000000000000124                __vector_26
-                0x0000000000000124                __vector_14
-                0x0000000000000124                __vector_10
-                0x0000000000000124                __vector_16
-                0x0000000000000124                __vector_18
-                0x0000000000000124                __vector_20
+.text.__vector_3
+                0x00000000000000f6       0x24
+ .text.__vector_3
+                0x00000000000000f6       0x24 main.o
+                0x00000000000000f6                __vector_3
+
+.text.wait      0x000000000000011a       0x1e
+ .text.wait     0x000000000000011a       0x1e main.o
+                0x000000000000011a                wait
+
+.text           0x0000000000000138        0x4
+ .text          0x0000000000000138        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
+                0x0000000000000138                __vector_22
+                0x0000000000000138                __vector_28
+                0x0000000000000138                __vector_1
+                0x0000000000000138                __vector_32
+                0x0000000000000138                __vector_34
+                0x0000000000000138                __vector_24
+                0x0000000000000138                __vector_12
+                0x0000000000000138                __bad_interrupt
+                0x0000000000000138                __vector_6
+                0x0000000000000138                __vector_31
+                0x0000000000000138                __vector_23
+                0x0000000000000138                __vector_30
+                0x0000000000000138                __vector_25
+                0x0000000000000138                __vector_11
+                0x0000000000000138                __vector_13
+                0x0000000000000138                __vector_17
+                0x0000000000000138                __vector_19
+                0x0000000000000138                __vector_7
+                0x0000000000000138                __vector_27
+                0x0000000000000138                __vector_5
+                0x0000000000000138                __vector_33
+                0x0000000000000138                __vector_4
+                0x0000000000000138                __vector_9
+                0x0000000000000138                __vector_21
+                0x0000000000000138                __vector_15
+                0x0000000000000138                __vector_29
+                0x0000000000000138                __vector_8
+                0x0000000000000138                __vector_26
+                0x0000000000000138                __vector_14
+                0x0000000000000138                __vector_10
+                0x0000000000000138                __vector_16
+                0x0000000000000138                __vector_18
+                0x0000000000000138                __vector_20
