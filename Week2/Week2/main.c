@@ -18,6 +18,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include "lcd.h"
 
 
 /******************************************************************
@@ -51,12 +52,11 @@ typedef struct {
 } PATTERN_STRUCT2;
 
 PATTERN_STRUCT2 pattern2[] = {
-	{0x00, 100}, {0x01, 100}, {0x02, 100}, {0x04, 100}, {0x10, 100}, {0x20, 100}, {0x40, 100}, {0x80, 100}, //een kant op
-	{0x80, 100}, {0x40, 100}, {0x20, 100}, {0x10, 100}, {0x4, 100}, {0x02, 100}, {0x01, 100}, {0x00, 100}, //andere kant op
-	{0xAA,  50}, {0x55,  50},{0xAA,  50}, {0x55,  50},{0xAA,  50}, {0x55,  50},{0x00, 100}, //knipperen
-	{0x81, 100}, {0x42, 100}, {0x24, 100}, {0x18, 100}, // naar midden vanuit buiten
-	{0x18, 100}, {0x24, 100}, {0x42, 100}, {0x81, 100}, //naar buiten vanuit midden
-	{0x0F, 200}, {0xF0, 200}, {0x0F, 200}, {0xF0, 200}, // half om half
+	{0x00, 100}, {0x01, 100}, {0x02, 100}, {0x04, 100}, {0x10, 100}, {0x20, 100}, {0x40, 100}, {0x80, 100},
+	{0x80, 100}, {0x40, 100}, {0x20, 100}, {0x10, 100}, {0x4, 100}, {0x02, 100}, {0x01, 100}, {0x00, 100},
+	{0xAA,  50}, {0x55,  50},{0xAA,  50}, {0x55,  50},{0xAA,  50}, {0x55,  50},{0x00, 100},
+	{0x18, 100}, {0x24, 100}, {0x42, 100}, {0x81, 100}, 
+	{0x0F, 200}, {0xF0, 200}, {0x0F, 200}, {0xF0, 200}, 
 	{0x00, 0x00}
 };
 
@@ -68,12 +68,6 @@ void display(int digit) {
 	}
 	
 }
-
-
-
-
-
-
 
 unsigned int number = 0;
 int button1 = 0;
@@ -87,9 +81,20 @@ ISR( INT1_vect ) {
 	button1 = 1;
 }
 
+int main(void) {
+	
+	init();
+	char text[] = "Hello there, my ";
+	char text2[] = "dude. What's up";
+	set_cursor(0);
+	display_text(text);
+	set_cursor(40);
+	display_text(text2);
+	return 1;
+	
+}
 
-
-int main(void)
+int OpdrachtB4(void)
 {
 DDRE = 0xFF;
 
