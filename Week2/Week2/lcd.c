@@ -1,10 +1,3 @@
-/*
- * lcd.c
- *
- * Created: 9-2-2022 15:05:22
- *  Author: leonv
- */ 
-
 #define F_CPU 8e6
 #include <avr/io.h>
 #include <util/delay.h>
@@ -19,8 +12,6 @@ void init_4bits_mode(void);
 void lcd_write_string(char *str);
 void lcd_write_data(unsigned char byte);
 void lcd_write_cmd(unsigned char byte);
-
-void lcd_writeLine1 ( char text1[] );
 
 void init() {
 		// PORTC output mode and all low (also E and RS pin)
@@ -49,7 +40,7 @@ void init() {
 		PORTC = 0x60;
 		lcd_strobe_lcd_e();
 		
-	char reset[] = "                ";
+	char reset[] = "                "; //Reset string
 	set_cursor(0);
 	lcd_write_string(reset);
 	set_cursor(40);
@@ -57,22 +48,10 @@ void init() {
 }
 
 void lcd_write_string(char *str) {
+	
 	for(;*str; str++){
 		lcd_write_data(*str);
 	}
-	
-// 	int length = strlen(str);
-// 	int maxLineLength = 16;
-// 	
-// 	if (length > maxLineLength)
-// 	{	
-// 		int lengthRegel2 = length - maxLineLength;
-// 		char subbuff[lengthRegel2];
-// 		memcpy(subbuff, &str[length], lengthRegel2);
-// 		subbuff[lengthRegel2] = '\0';
-// 		set_cursor(40);
-// 		lcd_write_data(*subbuff);
-// 	}
 
 }void lcd_write_cmd(unsigned char byte)
 {

@@ -378,11 +378,11 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x13e2
+.debug_info     0x0000000000000000     0x13d2
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x780 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
  .debug_info    0x0000000000000780      0x5b7 lcd.o
- .debug_info    0x0000000000000d37      0x6ab main.o
+ .debug_info    0x0000000000000d37      0x69b main.o
 
 .debug_abbrev   0x0000000000000000      0xa5b
  *(.debug_abbrev)
@@ -390,11 +390,11 @@ END GROUP
  .debug_abbrev  0x0000000000000718      0x159 lcd.o
  .debug_abbrev  0x0000000000000871      0x1ea main.o
 
-.debug_line     0x0000000000000000      0x695
+.debug_line     0x0000000000000000      0x68f
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x16d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
- .debug_line    0x000000000000016d      0x254 lcd.o
- .debug_line    0x00000000000003c1      0x2d4 main.o
+ .debug_line    0x000000000000016d      0x253 lcd.o
+ .debug_line    0x00000000000003c0      0x2cf main.o
 
 .debug_frame    0x0000000000000000      0x184
  *(.debug_frame)
@@ -454,107 +454,107 @@ LOAD data_init
  .bss.button1   0x0000000000800102        0x2 main.o
                 0x0000000000800102                button1
 
-.progmemx.data  0x00000000000000ea       0x12
+.progmemx.data  0x00000000000000ea       0x18
  .progmemx.data
-                0x00000000000000ea       0x12 main.o
+                0x00000000000000ea       0x18 main.o
 
-.progmemx.data  0x00000000000000fc       0x11
+.progmemx.data  0x0000000000000102       0x11
  .progmemx.data
-                0x00000000000000fc       0x11 lcd.o
+                0x0000000000000102       0x11 lcd.o
 
-.text.init      0x000000000000010e       0x96
- .text.init     0x000000000000010e       0x96 lcd.o
-                0x000000000000010e                init
+.text.init      0x0000000000000114       0x96
+ .text.init     0x0000000000000114       0x96 lcd.o
+                0x0000000000000114                init
 
-.text.main      0x00000000000001a4       0x76
- .text.main     0x00000000000001a4       0x76 main.o
-                0x00000000000001a4                main
+.text.main      0x00000000000001aa       0x76
+ .text.main     0x00000000000001aa       0x76 main.o
+                0x00000000000001aa                main
 
 .text.__vector_3
-                0x000000000000021a       0x28
+                0x0000000000000220       0x28
  .text.__vector_3
-                0x000000000000021a       0x28 main.o
-                0x000000000000021a                __vector_3
+                0x0000000000000220       0x28 main.o
+                0x0000000000000220                __vector_3
 
 .text.__vector_2
-                0x0000000000000242       0x28
+                0x0000000000000248       0x28
  .text.__vector_2
-                0x0000000000000242       0x28 main.o
-                0x0000000000000242                __vector_2
+                0x0000000000000248       0x28 main.o
+                0x0000000000000248                __vector_2
 
 .text.lcd_strobe_lcd_e
-                0x000000000000026a       0x26
+                0x0000000000000270       0x26
  .text.lcd_strobe_lcd_e
-                0x000000000000026a       0x26 lcd.o
-                0x000000000000026a                lcd_strobe_lcd_e
+                0x0000000000000270       0x26 lcd.o
+                0x0000000000000270                lcd_strobe_lcd_e
 
 .text.lcd_write_cmd
-                0x0000000000000290       0x24
+                0x0000000000000296       0x24
  .text.lcd_write_cmd
-                0x0000000000000290       0x24 lcd.o
-                0x0000000000000290                lcd_write_cmd
+                0x0000000000000296       0x24 lcd.o
+                0x0000000000000296                lcd_write_cmd
 
 .text.lcd_write_data
-                0x00000000000002b4       0x24
+                0x00000000000002ba       0x24
  .text.lcd_write_data
-                0x00000000000002b4       0x24 lcd.o
-                0x00000000000002b4                lcd_write_data
+                0x00000000000002ba       0x24 lcd.o
+                0x00000000000002ba                lcd_write_data
 
-.text.libgcc    0x00000000000002d8       0x1c
- .text.libgcc   0x00000000000002d8       0x1c c:/program files/microchip/xc8/v2.31/avr/bin/../lib/gcc/avr/5.4.0/avr51/memx-const\libgcc.a(_movmemx.o)
-                0x00000000000002d8                __movmemx_qi
-                0x00000000000002da                __movmemx_hi
+.text.libgcc    0x00000000000002de       0x1c
+ .text.libgcc   0x00000000000002de       0x1c c:/program files/microchip/xc8/v2.31/avr/bin/../lib/gcc/avr/5.4.0/avr51/memx-const\libgcc.a(_movmemx.o)
+                0x00000000000002de                __movmemx_qi
+                0x00000000000002e0                __movmemx_hi
 
 .text.lcd_write_string
-                0x00000000000002f4       0x1a
+                0x00000000000002fa       0x1a
  .text.lcd_write_string
-                0x00000000000002f4       0x1a lcd.o
-                0x00000000000002f4                lcd_write_string
+                0x00000000000002fa       0x1a lcd.o
+                0x00000000000002fa                lcd_write_string
 
 .text.set_cursor
-                0x000000000000030e        0x8
+                0x0000000000000314        0x8
  .text.set_cursor
-                0x000000000000030e        0x8 lcd.o
-                0x000000000000030e                set_cursor
+                0x0000000000000314        0x8 lcd.o
+                0x0000000000000314                set_cursor
 
 .text.display_text
-                0x0000000000000316        0x6
+                0x000000000000031c        0x6
  .text.display_text
-                0x0000000000000316        0x6 lcd.o
-                0x0000000000000316                display_text
+                0x000000000000031c        0x6 lcd.o
+                0x000000000000031c                display_text
 
-.text           0x000000000000031c        0x4
- .text          0x000000000000031c        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
-                0x000000000000031c                __vector_22
-                0x000000000000031c                __vector_28
-                0x000000000000031c                __vector_1
-                0x000000000000031c                __vector_32
-                0x000000000000031c                __vector_34
-                0x000000000000031c                __vector_24
-                0x000000000000031c                __vector_12
-                0x000000000000031c                __bad_interrupt
-                0x000000000000031c                __vector_6
-                0x000000000000031c                __vector_31
-                0x000000000000031c                __vector_23
-                0x000000000000031c                __vector_30
-                0x000000000000031c                __vector_25
-                0x000000000000031c                __vector_11
-                0x000000000000031c                __vector_13
-                0x000000000000031c                __vector_17
-                0x000000000000031c                __vector_19
-                0x000000000000031c                __vector_7
-                0x000000000000031c                __vector_27
-                0x000000000000031c                __vector_5
-                0x000000000000031c                __vector_33
-                0x000000000000031c                __vector_4
-                0x000000000000031c                __vector_9
-                0x000000000000031c                __vector_21
-                0x000000000000031c                __vector_15
-                0x000000000000031c                __vector_29
-                0x000000000000031c                __vector_8
-                0x000000000000031c                __vector_26
-                0x000000000000031c                __vector_14
-                0x000000000000031c                __vector_10
-                0x000000000000031c                __vector_16
-                0x000000000000031c                __vector_18
-                0x000000000000031c                __vector_20
+.text           0x0000000000000322        0x4
+ .text          0x0000000000000322        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
+                0x0000000000000322                __vector_22
+                0x0000000000000322                __vector_28
+                0x0000000000000322                __vector_1
+                0x0000000000000322                __vector_32
+                0x0000000000000322                __vector_34
+                0x0000000000000322                __vector_24
+                0x0000000000000322                __vector_12
+                0x0000000000000322                __bad_interrupt
+                0x0000000000000322                __vector_6
+                0x0000000000000322                __vector_31
+                0x0000000000000322                __vector_23
+                0x0000000000000322                __vector_30
+                0x0000000000000322                __vector_25
+                0x0000000000000322                __vector_11
+                0x0000000000000322                __vector_13
+                0x0000000000000322                __vector_17
+                0x0000000000000322                __vector_19
+                0x0000000000000322                __vector_7
+                0x0000000000000322                __vector_27
+                0x0000000000000322                __vector_5
+                0x0000000000000322                __vector_33
+                0x0000000000000322                __vector_4
+                0x0000000000000322                __vector_9
+                0x0000000000000322                __vector_21
+                0x0000000000000322                __vector_15
+                0x0000000000000322                __vector_29
+                0x0000000000000322                __vector_8
+                0x0000000000000322                __vector_26
+                0x0000000000000322                __vector_14
+                0x0000000000000322                __vector_10
+                0x0000000000000322                __vector_16
+                0x0000000000000322                __vector_18
+                0x0000000000000322                __vector_20
