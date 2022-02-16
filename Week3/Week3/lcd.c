@@ -13,7 +13,7 @@ void lcd_write_string(char *str);
 void lcd_write_data(unsigned char byte);
 void lcd_write_cmd(unsigned char byte);
 
-void init() {
+void lcd_init() {
 		// PORTC output mode and all low (also E and RS pin)
 		DDRC = 0xFF;
 		PORTC = 0x00;
@@ -41,9 +41,9 @@ void init() {
 		lcd_strobe_lcd_e();
 		
 	char reset[] = "                "; //Reset string
-	set_cursor(0);
+	lcd_set_cursor(0);
 	lcd_write_string(reset);
-	set_cursor(40);
+	lcd_set_cursor(40);
 	lcd_write_string(reset);
 }
 
@@ -81,11 +81,11 @@ void lcd_write_string(char *str) {
 	_delay_ms(1);
 }
 
-void display_text(char *str) {
+void lcd_display_text(char *str) {
 	//set_cursor(0);
 	lcd_write_string(str);
 }
 
-void set_cursor(int position) {
+void lcd_set_cursor(int position) {
 	lcd_write_cmd(position | (1 << 7));
 }
