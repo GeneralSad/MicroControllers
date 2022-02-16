@@ -84,8 +84,8 @@ ISR( INT1_vect ) {
 int main(void) {
 	
 	init();
-	char text[] = "Hello there, my ";
-	char text2[] = "dude. What's up";
+	char text[] = "Hello";
+	char text2[] = "Bottom text";
 	set_cursor(0);
 	display_text(text);
 	set_cursor(40);
