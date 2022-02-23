@@ -4,8 +4,13 @@
     <memory name="program">              
       <units>bytes</units>                 
       <length>131072</length>                 
+<<<<<<< Updated upstream
       <used>244</used>                     
       <free>130828</free>                     
+=======
+      <used>2244</used>                     
+      <free>128828</free>                     
+>>>>>>> Stashed changes
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 

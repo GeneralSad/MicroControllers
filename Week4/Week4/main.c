@@ -10,6 +10,8 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include "lcd.h"
+#include <stdio.h>
 
 #define BIT(x)	(1 << (x))
 
@@ -17,10 +19,43 @@ void wait( int ms );
 void adcInit( void );
 
 
+int main( void ) {
+	DDRF = 0x00;				// set PORTF for input (ADC)
+	DDRA = 0xFF;				// set PORTA for output
+	//DDRB = 0xFF;				// set PORTB for output
+	adcInit();					// initialize ADC
+	lcd_init();
 
+	while (1)
+	{
+		PORTA = ADCH;
+		
+		char temp[10];
+		sprintf(temp, "%d    ", ADCH);
+		lcd_set_cursor(0);
+		lcd_display_text(temp);
+		
+		wait(100);
+	}
+}
 
 // Main program: ADC at PF1
 int opdrachtB3( void )
+{
+	DDRF = 0x00;					// set PORTF for input (ADC)
+	DDRA = 0xFF;
+    DDRB = 0xFF;					// set PORTA for output
+	adcInit();						// initialize ADC
+    
+	while (1)
+	{
+		//PORTB = ADCL;			// Show MSB/LSB (bit 10:0) of ADC
+		PORTA = ADCH;
+		wait(100);				// every 100 ms (busy waiting)
+	}
+}
+
+int opdrachtb2( void )
 {
 	DDRF = 0x00;					// set PORTF for input (ADC)
 	DDRA = 0xFF;					// set PORTA for output
@@ -39,8 +74,8 @@ int opdrachtB3( void )
 // Initialize ADC:
 void adcInit( void )
 {
-	ADMUX = 0b11100011;			// AREF=2,56 V, result left adjusted, channel1 at pin PF1
-	ADCSRA = 0b10000110;		// ADC-enable, no interrupt, no free running, division by 64
+	ADMUX = 0b11100011;			// AREF=VCC, result left adjusted, channel1 at pin PF1
+	ADCSRA = 0b11100110;		// ADC-enable, no interrupt, start, free running, division by 64
 }
 
 void wait( int ms )
