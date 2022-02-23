@@ -6,6 +6,15 @@
  */ 
 
 #include <xc.h>
+#define F_CPU 8e6
+#include <avr/io.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+
+#define BIT(x)	(1 << (x))
+
+void wait( int ms );
+void adcInit( void );
 
 // Main program: ADC at PF1
 int main( void )
