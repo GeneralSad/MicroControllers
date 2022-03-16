@@ -102,7 +102,7 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 000001e2 <__bad_interrupt>:
- 1e2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+ 1e2:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.wait:
 

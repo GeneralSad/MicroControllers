@@ -97,6 +97,7 @@ void displayDriverInit()
 
   	spi_slaveSelect(0);				// Select display chip
   	spi_write(0x0B);  				// Register 0B: Scan-limit
+	//spi_write(0x01); Wat er eerst stond, dit zorgt ervoor dat alleen digit 1 en 2 werken
   	spi_write(0x03);   				// 	-> 1 = Display digits 0..1
   	spi_slaveDeSelect(0);			// Deselect display chip
 
@@ -132,6 +133,7 @@ int main()
 	displayDriverInit();            // Initialize display chip
 
  	// clear display (all zero's)
+	//for (char i =1; i<=2; i++) was 2, maar moest 4 zijn
 	for (char i =1; i<=4; i++)
 	{
       	spi_slaveSelect(0); 		// Select display chip
