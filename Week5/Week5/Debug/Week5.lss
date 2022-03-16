@@ -233,7 +233,7 @@ Disassembly of section .text.displayDriverInit:
  130:	0e 94 cb 00 	call	0x196	; 0x196 <spi_slaveSelect>
  134:	8a e0       	ldi	r24, 0x0A	; 10
  136:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 13a:	84 e0       	ldi	r24, 0x04	; 4
+ 13a:	8f e0       	ldi	r24, 0x0F	; 15
  13c:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
  140:	80 e0       	ldi	r24, 0x00	; 0
  142:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <spi_slaveDeSelect>
