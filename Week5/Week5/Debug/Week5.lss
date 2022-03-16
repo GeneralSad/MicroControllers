@@ -3,85 +3,87 @@ Week5.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  0000023a  2**0
+  0 .data         00000000  00800100  00800100  00000200  2**0
                   ALLOC, LOAD, DATA
   1 .text         000000a4  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      0000002f  00000000  00000000  0000023a  2**0
+  2 .comment      0000002f  00000000  00000000  00000200  2**0
                   CONTENTS, READONLY
-  3 .debug_aranges 00000068  00000000  00000000  00000269  2**0
+  3 .debug_aranges 00000070  00000000  00000000  0000022f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_info   00000f14  00000000  00000000  000002d1  2**0
+  4 .debug_info   00000e05  00000000  00000000  0000029f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_abbrev 000008a0  00000000  00000000  000011e5  2**0
+  5 .debug_abbrev 000008ba  00000000  00000000  000010a4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   00000488  00000000  00000000  00001a85  2**0
+  6 .debug_line   0000040f  00000000  00000000  0000195e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  000000bc  00000000  00000000  00001f10  2**2
+  7 .debug_frame  000000d8  00000000  00000000  00001d70  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    00000288  00000000  00000000  00001fcc  2**0
+  8 .debug_str    00000288  00000000  00000000  00001e48  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_loc    000000e8  00000000  00000000  00002254  2**0
+  9 .debug_loc    0000016f  00000000  00000000  000020d0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000058  00000000  00000000  0000233c  2**0
+ 10 .debug_ranges 00000060  00000000  00000000  0000223f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .text         00000004  000001e2  000001e2  00000236  2**1
+ 11 .text         00000004  000001a8  000001a8  000001fc  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00002394  2**2
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000022a0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .text.wait    0000001e  00000178  00000178  000001cc  2**1
+ 13 .text.wait    0000001e  0000013e  0000013e  00000192  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 14 .text.spi_masterInit 00000016  000001ae  000001ae  00000202  2**1
+ 14 .text.spi_masterInit 00000016  00000174  00000174  000001c8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 15 .text.spi_write 00000008  000001da  000001da  0000022e  2**1
+ 15 .text.spi_write 00000008  000001a0  000001a0  000001f4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 16 .text.spi_slaveSelect 00000018  00000196  00000196  000001ea  2**1
+ 16 .text.spi_slaveSelect 00000018  0000015c  0000015c  000001b0  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 17 .text.spi_slaveDeSelect 00000016  000001c4  000001c4  00000218  2**1
+ 17 .text.spi_slaveDeSelect 00000016  0000018a  0000018a  000001de  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 18 .text.displayDriverInit 00000062  00000116  00000116  0000016a  2**1
+ 18 .text.spi_writeWord 00000026  000000f6  000000f6  0000014a  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 19 .text.main    00000072  000000a4  000000a4  000000f8  2**1
+ 19 .text.displayDriverInit 00000022  0000011c  0000011c  00000170  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.main    00000052  000000a4  000000a4  000000f8  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
-   4:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-   8:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-   c:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  10:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  14:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  18:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  1c:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  20:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  24:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  28:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  2c:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  30:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  34:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  38:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  3c:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  40:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  44:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  48:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  4c:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  50:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  54:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  58:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  5c:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  60:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  64:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  68:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  6c:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  70:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  74:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  78:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  7c:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  80:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  84:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
-  88:	0c 94 f1 00 	jmp	0x1e2	; 0x1e2 <__bad_interrupt>
+   4:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+   8:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+   c:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  10:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  14:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  18:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  1c:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  20:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  24:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  28:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  2c:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  30:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  34:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  38:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  3c:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  40:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  44:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  48:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  4c:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  50:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  54:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  58:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  5c:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  60:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  64:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  68:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  6c:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  70:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  74:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  78:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  7c:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  80:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  84:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
+  88:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <__bad_interrupt>
 
 0000008c <__ctors_end>:
   8c:	11 24       	eor	r1, r1
@@ -101,159 +103,158 @@ Disassembly of section .text:
 
 Disassembly of section .text:
 
-000001e2 <__bad_interrupt>:
- 1e2:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+000001a8 <__bad_interrupt>:
+ 1a8:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 Disassembly of section .text.wait:
 
-00000178 <wait>:
+0000013e <wait>:
 {
 	SPDR = data;							// Load byte to Data register --> starts transmission
 	while( !(SPSR & BIT(SPIF)) ); 			// Wait for transmission complete 
 	data = SPDR;							// New received data (eventually, MISO) in SPDR
 	return data;							// Return received byte
 }
- 178:	20 e0       	ldi	r18, 0x00	; 0
- 17a:	30 e0       	ldi	r19, 0x00	; 0
- 17c:	08 c0       	rjmp	.+16     	; 0x18e <wait+0x16>
- 17e:	ef ec       	ldi	r30, 0xCF	; 207
- 180:	f7 e0       	ldi	r31, 0x07	; 7
- 182:	31 97       	sbiw	r30, 0x01	; 1
- 184:	f1 f7       	brne	.-4      	; 0x182 <wait+0xa>
- 186:	00 c0       	rjmp	.+0      	; 0x188 <wait+0x10>
- 188:	00 00       	nop
- 18a:	2f 5f       	subi	r18, 0xFF	; 255
- 18c:	3f 4f       	sbci	r19, 0xFF	; 255
- 18e:	28 17       	cp	r18, r24
- 190:	39 07       	cpc	r19, r25
- 192:	ac f3       	brlt	.-22     	; 0x17e <wait+0x6>
- 194:	08 95       	ret
+ 13e:	20 e0       	ldi	r18, 0x00	; 0
+ 140:	30 e0       	ldi	r19, 0x00	; 0
+ 142:	08 c0       	rjmp	.+16     	; 0x154 <wait+0x16>
+ 144:	ef ec       	ldi	r30, 0xCF	; 207
+ 146:	f7 e0       	ldi	r31, 0x07	; 7
+ 148:	31 97       	sbiw	r30, 0x01	; 1
+ 14a:	f1 f7       	brne	.-4      	; 0x148 <wait+0xa>
+ 14c:	00 c0       	rjmp	.+0      	; 0x14e <wait+0x10>
+ 14e:	00 00       	nop
+ 150:	2f 5f       	subi	r18, 0xFF	; 255
+ 152:	3f 4f       	sbci	r19, 0xFF	; 255
+ 154:	28 17       	cp	r18, r24
+ 156:	39 07       	cpc	r19, r25
+ 158:	ac f3       	brlt	.-22     	; 0x144 <wait+0x6>
+ 15a:	08 95       	ret
 
 Disassembly of section .text.spi_masterInit:
 
-000001ae <spi_masterInit>:
+00000174 <spi_masterInit>:
 		}
 }
 
 void spi_masterInit(void)
 {
 	DDR_SPI = 0xff;							// All pins output: MOSI, SCK, SS, SS_display as output
- 1ae:	8f ef       	ldi	r24, 0xFF	; 255
- 1b0:	87 bb       	out	0x17, r24	; 23
+ 174:	8f ef       	ldi	r24, 0xFF	; 255
+ 176:	87 bb       	out	0x17, r24	; 23
 	DDR_SPI &= ~BIT(SPI_MISO);				// 	except: MISO input
- 1b2:	87 b3       	in	r24, 0x17	; 23
- 1b4:	87 7f       	andi	r24, 0xF7	; 247
- 1b6:	87 bb       	out	0x17, r24	; 23
+ 178:	87 b3       	in	r24, 0x17	; 23
+ 17a:	87 7f       	andi	r24, 0xF7	; 247
+ 17c:	87 bb       	out	0x17, r24	; 23
 	PORT_SPI |= BIT(SPI_SS);				// SS_ADC == 1: deselect slave
- 1b8:	88 b3       	in	r24, 0x18	; 24
- 1ba:	81 60       	ori	r24, 0x01	; 1
- 1bc:	88 bb       	out	0x18, r24	; 24
+ 17e:	88 b3       	in	r24, 0x18	; 24
+ 180:	81 60       	ori	r24, 0x01	; 1
+ 182:	88 bb       	out	0x18, r24	; 24
 	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR1);	// or: SPCR = 0b11010010;
- 1be:	82 e5       	ldi	r24, 0x52	; 82
- 1c0:	8d b9       	out	0x0d, r24	; 13
- 1c2:	08 95       	ret
+ 184:	82 e5       	ldi	r24, 0x52	; 82
+ 186:	8d b9       	out	0x0d, r24	; 13
+ 188:	08 95       	ret
 
 Disassembly of section .text.spi_write:
 
-000001da <spi_write>:
+000001a0 <spi_write>:
 
 
 // Write a byte from master to slave
 void spi_write( unsigned char data )				
 {
 	SPDR = data;							// Load byte to Data register --> starts transmission
- 1da:	8f b9       	out	0x0f, r24	; 15
+ 1a0:	8f b9       	out	0x0f, r24	; 15
 	while( !(SPSR & BIT(SPIF)) ); 			// Wait for transmission complete 
- 1dc:	77 9b       	sbis	0x0e, 7	; 14
- 1de:	fe cf       	rjmp	.-4      	; 0x1dc <spi_write+0x2>
+ 1a2:	77 9b       	sbis	0x0e, 7	; 14
+ 1a4:	fe cf       	rjmp	.-4      	; 0x1a2 <spi_write+0x2>
 }
- 1e0:	08 95       	ret
+ 1a6:	08 95       	ret
 
 Disassembly of section .text.spi_slaveSelect:
 
-00000196 <spi_slaveSelect>:
+0000015c <spi_slaveSelect>:
 }
 
 // Select device on pinnumer PORTB
 void spi_slaveSelect(unsigned char chipNumber)
 {
 	PORTB &= ~BIT(chipNumber);
- 196:	98 b3       	in	r25, 0x18	; 24
- 198:	21 e0       	ldi	r18, 0x01	; 1
- 19a:	30 e0       	ldi	r19, 0x00	; 0
- 19c:	02 c0       	rjmp	.+4      	; 0x1a2 <spi_slaveSelect+0xc>
- 19e:	22 0f       	add	r18, r18
- 1a0:	33 1f       	adc	r19, r19
- 1a2:	8a 95       	dec	r24
- 1a4:	e2 f7       	brpl	.-8      	; 0x19e <spi_slaveSelect+0x8>
- 1a6:	20 95       	com	r18
- 1a8:	29 23       	and	r18, r25
- 1aa:	28 bb       	out	0x18, r18	; 24
- 1ac:	08 95       	ret
+ 15c:	98 b3       	in	r25, 0x18	; 24
+ 15e:	21 e0       	ldi	r18, 0x01	; 1
+ 160:	30 e0       	ldi	r19, 0x00	; 0
+ 162:	02 c0       	rjmp	.+4      	; 0x168 <spi_slaveSelect+0xc>
+ 164:	22 0f       	add	r18, r18
+ 166:	33 1f       	adc	r19, r19
+ 168:	8a 95       	dec	r24
+ 16a:	e2 f7       	brpl	.-8      	; 0x164 <spi_slaveSelect+0x8>
+ 16c:	20 95       	com	r18
+ 16e:	29 23       	and	r18, r25
+ 170:	28 bb       	out	0x18, r18	; 24
+ 172:	08 95       	ret
 
 Disassembly of section .text.spi_slaveDeSelect:
 
-000001c4 <spi_slaveDeSelect>:
+0000018a <spi_slaveDeSelect>:
 
 // Deselect device on pinnumer PORTB
 void spi_slaveDeSelect(unsigned char chipNumber)
 {
 
 	PORTB |= BIT(chipNumber);
- 1c4:	98 b3       	in	r25, 0x18	; 24
- 1c6:	21 e0       	ldi	r18, 0x01	; 1
- 1c8:	30 e0       	ldi	r19, 0x00	; 0
- 1ca:	02 c0       	rjmp	.+4      	; 0x1d0 <spi_slaveDeSelect+0xc>
- 1cc:	22 0f       	add	r18, r18
- 1ce:	33 1f       	adc	r19, r19
- 1d0:	8a 95       	dec	r24
- 1d2:	e2 f7       	brpl	.-8      	; 0x1cc <spi_slaveDeSelect+0x8>
- 1d4:	29 2b       	or	r18, r25
- 1d6:	28 bb       	out	0x18, r18	; 24
- 1d8:	08 95       	ret
+ 18a:	98 b3       	in	r25, 0x18	; 24
+ 18c:	21 e0       	ldi	r18, 0x01	; 1
+ 18e:	30 e0       	ldi	r19, 0x00	; 0
+ 190:	02 c0       	rjmp	.+4      	; 0x196 <spi_slaveDeSelect+0xc>
+ 192:	22 0f       	add	r18, r18
+ 194:	33 1f       	adc	r19, r19
+ 196:	8a 95       	dec	r24
+ 198:	e2 f7       	brpl	.-8      	; 0x192 <spi_slaveDeSelect+0x8>
+ 19a:	29 2b       	or	r18, r25
+ 19c:	28 bb       	out	0x18, r18	; 24
+ 19e:	08 95       	ret
 
-Disassembly of section .text.displayDriverInit:
+Disassembly of section .text.spi_writeWord:
 
-00000116 <displayDriverInit>:
+000000f6 <spi_writeWord>:
 {
 	SPDR = data;							// Load byte to Data register --> starts transmission
 	while( !(SPSR & BIT(SPIF)) ); 			// Wait for transmission complete 
 	data = SPDR;							// New received data (eventually, MISO) in SPDR
 	return data;							// Return received byte
 }
- 116:	80 e0       	ldi	r24, 0x00	; 0
- 118:	0e 94 cb 00 	call	0x196	; 0x196 <spi_slaveSelect>
- 11c:	89 e0       	ldi	r24, 0x09	; 9
- 11e:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 122:	8f ef       	ldi	r24, 0xFF	; 255
- 124:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 128:	80 e0       	ldi	r24, 0x00	; 0
- 12a:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <spi_slaveDeSelect>
- 12e:	80 e0       	ldi	r24, 0x00	; 0
- 130:	0e 94 cb 00 	call	0x196	; 0x196 <spi_slaveSelect>
- 134:	8a e0       	ldi	r24, 0x0A	; 10
- 136:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 13a:	8f e0       	ldi	r24, 0x0F	; 15
- 13c:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 140:	80 e0       	ldi	r24, 0x00	; 0
- 142:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <spi_slaveDeSelect>
- 146:	80 e0       	ldi	r24, 0x00	; 0
- 148:	0e 94 cb 00 	call	0x196	; 0x196 <spi_slaveSelect>
- 14c:	8b e0       	ldi	r24, 0x0B	; 11
- 14e:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 152:	83 e0       	ldi	r24, 0x03	; 3
- 154:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 158:	80 e0       	ldi	r24, 0x00	; 0
- 15a:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <spi_slaveDeSelect>
- 15e:	80 e0       	ldi	r24, 0x00	; 0
- 160:	0e 94 cb 00 	call	0x196	; 0x196 <spi_slaveSelect>
- 164:	8c e0       	ldi	r24, 0x0C	; 12
- 166:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 16a:	81 e0       	ldi	r24, 0x01	; 1
- 16c:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
- 170:	80 e0       	ldi	r24, 0x00	; 0
- 172:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <spi_slaveDeSelect>
- 176:	08 95       	ret
+  f6:	cf 93       	push	r28
+  f8:	df 93       	push	r29
+  fa:	d8 2f       	mov	r29, r24
+  fc:	c6 2f       	mov	r28, r22
+  fe:	80 e0       	ldi	r24, 0x00	; 0
+ 100:	0e 94 ae 00 	call	0x15c	; 0x15c <spi_slaveSelect>
+ 104:	8d 2f       	mov	r24, r29
+ 106:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <spi_write>
+ 10a:	8c 2f       	mov	r24, r28
+ 10c:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <spi_write>
+ 110:	80 e0       	ldi	r24, 0x00	; 0
+ 112:	0e 94 c5 00 	call	0x18a	; 0x18a <spi_slaveDeSelect>
+ 116:	df 91       	pop	r29
+ 118:	cf 91       	pop	r28
+ 11a:	08 95       	ret
+
+Disassembly of section .text.displayDriverInit:
+
+0000011c <displayDriverInit>:
+ 11c:	6f ef       	ldi	r22, 0xFF	; 255
+ 11e:	89 e0       	ldi	r24, 0x09	; 9
+ 120:	0e 94 7b 00 	call	0xf6	; 0xf6 <spi_writeWord>
+ 124:	6f e0       	ldi	r22, 0x0F	; 15
+ 126:	8a e0       	ldi	r24, 0x0A	; 10
+ 128:	0e 94 7b 00 	call	0xf6	; 0xf6 <spi_writeWord>
+ 12c:	63 e0       	ldi	r22, 0x03	; 3
+ 12e:	8b e0       	ldi	r24, 0x0B	; 11
+ 130:	0e 94 7b 00 	call	0xf6	; 0xf6 <spi_writeWord>
+ 134:	61 e0       	ldi	r22, 0x01	; 1
+ 136:	8c e0       	ldi	r24, 0x0C	; 12
+ 138:	0e 94 7b 00 	call	0xf6	; 0xf6 <spi_writeWord>
+ 13c:	08 95       	ret
 
 Disassembly of section .text.main:
 
@@ -261,44 +262,34 @@ Disassembly of section .text.main:
   a4:	cf 93       	push	r28
   a6:	81 e0       	ldi	r24, 0x01	; 1
   a8:	87 bb       	out	0x17, r24	; 23
-  aa:	0e 94 d7 00 	call	0x1ae	; 0x1ae <spi_masterInit>
-  ae:	0e 94 8b 00 	call	0x116	; 0x116 <displayDriverInit>
+  aa:	0e 94 ba 00 	call	0x174	; 0x174 <spi_masterInit>
+  ae:	0e 94 8e 00 	call	0x11c	; 0x11c <displayDriverInit>
   b2:	c1 e0       	ldi	r28, 0x01	; 1
-  b4:	0d c0       	rjmp	.+26     	; 0xd0 <main+0x2c>
-  b6:	80 e0       	ldi	r24, 0x00	; 0
-  b8:	0e 94 cb 00 	call	0x196	; 0x196 <spi_slaveSelect>
-  bc:	8c 2f       	mov	r24, r28
-  be:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
-  c2:	80 e0       	ldi	r24, 0x00	; 0
-  c4:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
-  c8:	80 e0       	ldi	r24, 0x00	; 0
-  ca:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <spi_slaveDeSelect>
-  ce:	cf 5f       	subi	r28, 0xFF	; 255
-  d0:	c5 30       	cpi	r28, 0x05	; 5
-  d2:	88 f3       	brcs	.-30     	; 0xb6 <main+0x12>
-  d4:	88 ee       	ldi	r24, 0xE8	; 232
-  d6:	93 e0       	ldi	r25, 0x03	; 3
-  d8:	0e 94 bc 00 	call	0x178	; 0x178 <wait>
-  dc:	c1 e0       	ldi	r28, 0x01	; 1
-  de:	11 c0       	rjmp	.+34     	; 0x102 <main+0x5e>
-  e0:	80 e0       	ldi	r24, 0x00	; 0
-  e2:	0e 94 cb 00 	call	0x196	; 0x196 <spi_slaveSelect>
-  e6:	8c 2f       	mov	r24, r28
-  e8:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
-  ec:	8c 2f       	mov	r24, r28
-  ee:	0e 94 ed 00 	call	0x1da	; 0x1da <spi_write>
-  f2:	80 e0       	ldi	r24, 0x00	; 0
-  f4:	0e 94 e2 00 	call	0x1c4	; 0x1c4 <spi_slaveDeSelect>
-  f8:	88 ee       	ldi	r24, 0xE8	; 232
-  fa:	93 e0       	ldi	r25, 0x03	; 3
-  fc:	0e 94 bc 00 	call	0x178	; 0x178 <wait>
- 100:	cf 5f       	subi	r28, 0xFF	; 255
- 102:	c5 30       	cpi	r28, 0x05	; 5
- 104:	68 f3       	brcs	.-38     	; 0xe0 <main+0x3c>
- 106:	88 ee       	ldi	r24, 0xE8	; 232
- 108:	93 e0       	ldi	r25, 0x03	; 3
- 10a:	0e 94 bc 00 	call	0x178	; 0x178 <wait>
- 10e:	81 e0       	ldi	r24, 0x01	; 1
- 110:	90 e0       	ldi	r25, 0x00	; 0
- 112:	cf 91       	pop	r28
- 114:	08 95       	ret
+  b4:	05 c0       	rjmp	.+10     	; 0xc0 <main+0x1c>
+  b6:	60 e0       	ldi	r22, 0x00	; 0
+  b8:	8c 2f       	mov	r24, r28
+  ba:	0e 94 7b 00 	call	0xf6	; 0xf6 <spi_writeWord>
+  be:	cf 5f       	subi	r28, 0xFF	; 255
+  c0:	c5 30       	cpi	r28, 0x05	; 5
+  c2:	c8 f3       	brcs	.-14     	; 0xb6 <main+0x12>
+  c4:	88 ee       	ldi	r24, 0xE8	; 232
+  c6:	93 e0       	ldi	r25, 0x03	; 3
+  c8:	0e 94 9f 00 	call	0x13e	; 0x13e <wait>
+  cc:	c1 e0       	ldi	r28, 0x01	; 1
+  ce:	09 c0       	rjmp	.+18     	; 0xe2 <main+0x3e>
+  d0:	6c 2f       	mov	r22, r28
+  d2:	8c 2f       	mov	r24, r28
+  d4:	0e 94 7b 00 	call	0xf6	; 0xf6 <spi_writeWord>
+  d8:	88 ee       	ldi	r24, 0xE8	; 232
+  da:	93 e0       	ldi	r25, 0x03	; 3
+  dc:	0e 94 9f 00 	call	0x13e	; 0x13e <wait>
+  e0:	cf 5f       	subi	r28, 0xFF	; 255
+  e2:	c5 30       	cpi	r28, 0x05	; 5
+  e4:	a8 f3       	brcs	.-22     	; 0xd0 <main+0x2c>
+  e6:	88 ee       	ldi	r24, 0xE8	; 232
+  e8:	93 e0       	ldi	r25, 0x03	; 3
+  ea:	0e 94 9f 00 	call	0x13e	; 0x13e <wait>
+  ee:	81 e0       	ldi	r24, 0x01	; 1
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	cf 91       	pop	r28
+  f4:	08 95       	ret
