@@ -94,7 +94,7 @@ void displayDriverInit()
 {
 	
 	spi_writeWord(0x09, 0xFF);
-	spi_writeWord(0x0A, 0x0F);
+	spi_writeWord(0x0A, 0x04);
 	spi_writeWord(0x0B, 0x03);
 	spi_writeWord(0x0C, 0x01);
 	
@@ -116,6 +116,23 @@ void displayOff()
 	
 }
 
+
+
+void writeLedDisplay( int value ) // toont de waarde van value op het 4-digit display
+{
+	if (value < 0 || value > 9999)
+	{
+		return;
+	}
+	
+	spi_writeWord('1', (value % 10));
+	spi_writeWord('2', (value % 100)/10);
+	spi_writeWord('3', (value % 1000)/100);
+	spi_writeWord('4', (value % 10000)/1000);	
+	
+}
+
+
 int main()
 {
 	// inilialize
@@ -127,20 +144,16 @@ int main()
 	//for (char i =1; i<=2; i++) was 2, maar moest 4 zijn
 	for (char i =1; i<=4; i++)
 	{
-		
 		spi_writeWord(i, 0);
-		
 	}    
 	wait(1000);
-
-	// write 4-digit data  
- 	for (char i =1; i<=4; i++)
-  	{
-		  
-		spi_writeWord(i, i);
-		wait(1000);
-		
-  	}
+	
+	for (int i = 0; i < 10000; i++)
+	{
+		writeLedDisplay(i);
+		wait(10);	
+	}
+	
 	wait(1000);
 
 
