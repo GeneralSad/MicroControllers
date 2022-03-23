@@ -1,0 +1,527 @@
+
+Eindopdracht.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000778  2**0
+                  ALLOC, LOAD, DATA
+  1 .text         000000ea  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000008  00800100  00800100  00000778  2**0
+                  ALLOC
+  3 .comment      0000002f  00000000  00000000  00000778  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000b0  00000000  00000000  000007a7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000012f9  00000000  00000000  00000857  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000998  00000000  00000000  00001b50  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000061f  00000000  00000000  000024e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000013c  00000000  00000000  00002b08  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000002a0  00000000  00000000  00002c44  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000002f8  00000000  00000000  00002ee4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000a8  00000000  00000000  000031dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  00000700  00000700  00000774  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00003284  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.displayClr 00000016  000006a6  000006a6  0000071a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.displayChar 00000034  00000604  00000604  00000678  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.twi_init 0000000c  000006e0  000006e0  00000754  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.twi_start 00000010  000006d0  000006d0  00000744  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.twi_stop 00000008  000006f8  000006f8  0000076c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.twi_tx  00000014  000006bc  000006bc  00000730  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.displayInitHT16K33 00000096  000004e2  000004e2  00000556  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.displayInit 0000000c  000006ec  000006ec  00000760  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.display 0000004a  00000578  00000578  000005ec  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .progmem0.data.font 000003f8  000000ea  000000ea  0000015e  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, PROGMEM0
+ 24 .text.wait    0000001e  00000688  00000688  000006fc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .text.main    00000042  000005c2  000005c2  00000636  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text.libgcc.div 00000028  00000638  00000638  000006ac  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 .text.libgcc.div 00000028  00000660  00000660  000006d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 49 00 	jmp	0x92	; 0x92 <__ctors_end>
+   4:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+   8:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+   c:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  10:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  14:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  18:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  1c:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  20:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  24:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  28:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  2c:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  30:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  34:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  38:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  3c:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  40:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  44:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  48:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  4c:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  50:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  54:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  58:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  5c:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  60:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  64:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  68:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  6c:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  70:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  74:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  78:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  7c:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  80:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  84:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+  88:	0c 94 80 03 	jmp	0x700	; 0x700 <__bad_interrupt>
+
+0000008c <.dinit>:
+  8c:	01 00       	.word	0x0001	; ????
+  8e:	01 08       	sbc	r0, r1
+  90:	80 00       	.word	0x0080	; ????
+
+00000092 <__ctors_end>:
+  92:	11 24       	eor	r1, r1
+  94:	1f be       	out	0x3f, r1	; 63
+  96:	cf ef       	ldi	r28, 0xFF	; 255
+  98:	d0 e1       	ldi	r29, 0x10	; 16
+  9a:	de bf       	out	0x3e, r29	; 62
+  9c:	cd bf       	out	0x3d, r28	; 61
+
+0000009e <__do_copy_data>:
+  9e:	ec e8       	ldi	r30, 0x8C	; 140
+  a0:	f0 e0       	ldi	r31, 0x00	; 0
+  a2:	40 e0       	ldi	r20, 0x00	; 0
+  a4:	19 c0       	rjmp	.+50     	; 0xd8 <__do_clear_bss+0x8>
+  a6:	b7 91       	elpm	r27, Z+
+  a8:	a7 91       	elpm	r26, Z+
+  aa:	37 91       	elpm	r19, Z+
+  ac:	27 91       	elpm	r18, Z+
+  ae:	07 91       	elpm	r16, Z+
+  b0:	07 fd       	sbrc	r16, 7
+  b2:	0e c0       	rjmp	.+28     	; 0xd0 <__do_clear_bss>
+  b4:	97 91       	elpm	r25, Z+
+  b6:	87 91       	elpm	r24, Z+
+  b8:	ef 01       	movw	r28, r30
+  ba:	f9 2f       	mov	r31, r25
+  bc:	e8 2f       	mov	r30, r24
+  be:	0b bf       	out	0x3b, r16	; 59
+  c0:	07 90       	elpm	r0, Z+
+  c2:	0d 92       	st	X+, r0
+  c4:	a2 17       	cp	r26, r18
+  c6:	b3 07       	cpc	r27, r19
+  c8:	d9 f7       	brne	.-10     	; 0xc0 <__do_copy_data+0x22>
+  ca:	fe 01       	movw	r30, r28
+  cc:	1b be       	out	0x3b, r1	; 59
+  ce:	04 c0       	rjmp	.+8      	; 0xd8 <__do_clear_bss+0x8>
+
+000000d0 <__do_clear_bss>:
+  d0:	1d 92       	st	X+, r1
+  d2:	a2 17       	cp	r26, r18
+  d4:	b3 07       	cpc	r27, r19
+  d6:	e1 f7       	brne	.-8      	; 0xd0 <__do_clear_bss>
+  d8:	e1 39       	cpi	r30, 0x91	; 145
+  da:	f4 07       	cpc	r31, r20
+  dc:	21 f7       	brne	.-56     	; 0xa6 <__do_copy_data+0x8>
+  de:	0e 94 e1 02 	call	0x5c2	; 0x5c2 <main>
+  e2:	0c 94 73 00 	jmp	0xe6	; 0xe6 <_exit>
+
+000000e6 <_exit>:
+  e6:	f8 94       	cli
+
+000000e8 <__stop_program>:
+  e8:	ff cf       	rjmp	.-2      	; 0xe8 <__stop_program>
+
+Disassembly of section .text:
+
+00000700 <__bad_interrupt>:
+ 700:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.displayClr:
+
+000006a6 <displayClr>:
+outputs:
+notes:		Maakt gebruik van displayChar(..)
+Version:	DMK, Initial code
+*******************************************************************/
+void displayString(char *str, uint8_t x, uint8_t y)
+{
+ 6a6:	80 e0       	ldi	r24, 0x00	; 0
+ 6a8:	06 c0       	rjmp	.+12     	; 0x6b6 <displayClr+0x10>
+ 6aa:	e8 2f       	mov	r30, r24
+ 6ac:	f0 e0       	ldi	r31, 0x00	; 0
+ 6ae:	e0 50       	subi	r30, 0x00	; 0
+ 6b0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6b2:	10 82       	st	Z, r1
+ 6b4:	8f 5f       	subi	r24, 0xFF	; 255
+ 6b6:	87 30       	cpi	r24, 0x07	; 7
+ 6b8:	c0 f3       	brcs	.-16     	; 0x6aa <displayClr+0x4>
+ 6ba:	08 95       	ret
+
+Disassembly of section .text.displayChar:
+
+00000604 <displayChar>:
+ 604:	20 e0       	ldi	r18, 0x00	; 0
+ 606:	30 e0       	ldi	r19, 0x00	; 0
+ 608:	13 c0       	rjmp	.+38     	; 0x630 <displayChar+0x2c>
+ 60a:	e8 2f       	mov	r30, r24
+ 60c:	f0 e0       	ldi	r31, 0x00	; 0
+ 60e:	ee 0f       	add	r30, r30
+ 610:	ff 1f       	adc	r31, r31
+ 612:	ee 0f       	add	r30, r30
+ 614:	ff 1f       	adc	r31, r31
+ 616:	ee 0f       	add	r30, r30
+ 618:	ff 1f       	adc	r31, r31
+ 61a:	e6 51       	subi	r30, 0x16	; 22
+ 61c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 61e:	e2 0f       	add	r30, r18
+ 620:	f3 1f       	adc	r31, r19
+ 622:	94 91       	lpm	r25, Z
+ 624:	f9 01       	movw	r30, r18
+ 626:	e0 50       	subi	r30, 0x00	; 0
+ 628:	ff 4f       	sbci	r31, 0xFF	; 255
+ 62a:	90 83       	st	Z, r25
+ 62c:	2f 5f       	subi	r18, 0xFF	; 255
+ 62e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 630:	28 30       	cpi	r18, 0x08	; 8
+ 632:	31 05       	cpc	r19, r1
+ 634:	54 f3       	brlt	.-44     	; 0x60a <displayChar+0x6>
+ 636:	08 95       	ret
+
+Disassembly of section .text.twi_init:
+
+000006e0 <twi_init>:
+notes:			TWI clock is set to 100 kHz
+Version :    	DMK, Initial code
+*******************************************************************/
+void twi_init(void)
+{
+	TWSR = 0;
+ 6e0:	10 92 71 00 	sts	0x0071, r1	; 0x800071 <__TEXT_REGION_LENGTH__+0x7e0071>
+	TWBR = 32;	 // TWI clock set to 100kHz, prescaler = 0
+ 6e4:	80 e2       	ldi	r24, 0x20	; 32
+ 6e6:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <__TEXT_REGION_LENGTH__+0x7e0070>
+ 6ea:	08 95       	ret
+
+Disassembly of section .text.twi_start:
+
+000006d0 <twi_start>:
+outputs:
+notes:		Maakt gebruik van displayChar(..)
+Version:	DMK, Initial code
+*******************************************************************/
+void displayString(char *str, uint8_t x, uint8_t y)
+{
+ 6d0:	84 ea       	ldi	r24, 0xA4	; 164
+ 6d2:	80 93 74 00 	sts	0x0074, r24	; 0x800074 <__TEXT_REGION_LENGTH__+0x7e0074>
+ 6d6:	80 91 74 00 	lds	r24, 0x0074	; 0x800074 <__TEXT_REGION_LENGTH__+0x7e0074>
+ 6da:	88 23       	and	r24, r24
+ 6dc:	e4 f7       	brge	.-8      	; 0x6d6 <twi_start+0x6>
+ 6de:	08 95       	ret
+
+Disassembly of section .text.twi_stop:
+
+000006f8 <twi_stop>:
+notes:
+Version :    	DMK, Initial code
+*******************************************************************/
+void twi_stop(void)
+{
+	TWCR = (0x80 | 0x10 | 0x04);
+ 6f8:	84 e9       	ldi	r24, 0x94	; 148
+ 6fa:	80 93 74 00 	sts	0x0074, r24	; 0x800074 <__TEXT_REGION_LENGTH__+0x7e0074>
+ 6fe:	08 95       	ret
+
+Disassembly of section .text.twi_tx:
+
+000006bc <twi_tx>:
+outputs:
+notes:		Maakt gebruik van displayChar(..)
+Version:	DMK, Initial code
+*******************************************************************/
+void displayString(char *str, uint8_t x, uint8_t y)
+{
+ 6bc:	80 93 73 00 	sts	0x0073, r24	; 0x800073 <__TEXT_REGION_LENGTH__+0x7e0073>
+ 6c0:	84 e8       	ldi	r24, 0x84	; 132
+ 6c2:	80 93 74 00 	sts	0x0074, r24	; 0x800074 <__TEXT_REGION_LENGTH__+0x7e0074>
+ 6c6:	80 91 74 00 	lds	r24, 0x0074	; 0x800074 <__TEXT_REGION_LENGTH__+0x7e0074>
+ 6ca:	88 23       	and	r24, r24
+ 6cc:	e4 f7       	brge	.-8      	; 0x6c6 <twi_tx+0xa>
+ 6ce:	08 95       	ret
+
+Disassembly of section .text.displayInitHT16K33:
+
+000004e2 <displayInitHT16K33>:
+ 4e2:	cf 93       	push	r28
+ 4e4:	df 93       	push	r29
+ 4e6:	c8 2f       	mov	r28, r24
+ 4e8:	0e 94 68 03 	call	0x6d0	; 0x6d0 <twi_start>
+ 4ec:	8c 2f       	mov	r24, r28
+ 4ee:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 4f2:	81 e2       	ldi	r24, 0x21	; 33
+ 4f4:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 4f8:	0e 94 7c 03 	call	0x6f8	; 0x6f8 <twi_stop>
+ 4fc:	0e 94 68 03 	call	0x6d0	; 0x6d0 <twi_start>
+ 500:	8c 2f       	mov	r24, r28
+ 502:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 506:	80 ea       	ldi	r24, 0xA0	; 160
+ 508:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 50c:	0e 94 7c 03 	call	0x6f8	; 0x6f8 <twi_stop>
+ 510:	0e 94 68 03 	call	0x6d0	; 0x6d0 <twi_start>
+ 514:	8c 2f       	mov	r24, r28
+ 516:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 51a:	81 ee       	ldi	r24, 0xE1	; 225
+ 51c:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 520:	0e 94 7c 03 	call	0x6f8	; 0x6f8 <twi_stop>
+ 524:	0e 94 68 03 	call	0x6d0	; 0x6d0 <twi_start>
+ 528:	8c 2f       	mov	r24, r28
+ 52a:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 52e:	81 e8       	ldi	r24, 0x81	; 129
+ 530:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 534:	0e 94 7c 03 	call	0x6f8	; 0x6f8 <twi_stop>
+ 538:	0e 94 68 03 	call	0x6d0	; 0x6d0 <twi_start>
+ 53c:	8c 2f       	mov	r24, r28
+ 53e:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 542:	80 e0       	ldi	r24, 0x00	; 0
+ 544:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 548:	d0 e0       	ldi	r29, 0x00	; 0
+ 54a:	c5 e5       	ldi	r28, 0x55	; 85
+ 54c:	0e c0       	rjmp	.+28     	; 0x56a <displayInitHT16K33+0x88>
+ 54e:	c0 95       	com	r28
+ 550:	20 e8       	ldi	r18, 0x80	; 128
+ 552:	c2 9f       	mul	r28, r18
+ 554:	c0 01       	movw	r24, r0
+ 556:	11 24       	eor	r1, r1
+ 558:	9c 2f       	mov	r25, r28
+ 55a:	96 95       	lsr	r25
+ 55c:	89 2b       	or	r24, r25
+ 55e:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 562:	80 e0       	ldi	r24, 0x00	; 0
+ 564:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 568:	df 5f       	subi	r29, 0xFF	; 255
+ 56a:	d8 30       	cpi	r29, 0x08	; 8
+ 56c:	80 f3       	brcs	.-32     	; 0x54e <displayInitHT16K33+0x6c>
+ 56e:	0e 94 7c 03 	call	0x6f8	; 0x6f8 <twi_stop>
+ 572:	df 91       	pop	r29
+ 574:	cf 91       	pop	r28
+ 576:	08 95       	ret
+
+Disassembly of section .text.displayInit:
+
+000006ec <displayInit>:
+notes:			Init display
+Version :    	DMK, Initial code
+*******************************************************************/
+void displayInit(void) 
+{
+	twi_init();							// Enable TWI interface
+ 6ec:	0e 94 70 03 	call	0x6e0	; 0x6e0 <twi_init>
+	displayInitHT16K33(D0_I2C_ADDR);	// Iit display
+ 6f0:	84 ee       	ldi	r24, 0xE4	; 228
+ 6f2:	0e 94 71 02 	call	0x4e2	; 0x4e2 <displayInitHT16K33>
+ 6f6:	08 95       	ret
+
+Disassembly of section .text.display:
+
+00000578 <display>:
+outputs:
+notes:		Maakt gebruik van displayChar(..)
+Version:	DMK, Initial code
+*******************************************************************/
+void displayString(char *str, uint8_t x, uint8_t y)
+{
+ 578:	cf 93       	push	r28
+ 57a:	0e 94 68 03 	call	0x6d0	; 0x6d0 <twi_start>
+ 57e:	84 ee       	ldi	r24, 0xE4	; 228
+ 580:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 584:	80 e0       	ldi	r24, 0x00	; 0
+ 586:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 58a:	c0 e0       	ldi	r28, 0x00	; 0
+ 58c:	14 c0       	rjmp	.+40     	; 0x5b6 <display+0x3e>
+ 58e:	e7 e0       	ldi	r30, 0x07	; 7
+ 590:	f0 e0       	ldi	r31, 0x00	; 0
+ 592:	ec 1b       	sub	r30, r28
+ 594:	f1 09       	sbc	r31, r1
+ 596:	e0 50       	subi	r30, 0x00	; 0
+ 598:	ff 4f       	sbci	r31, 0xFF	; 255
+ 59a:	90 81       	ld	r25, Z
+ 59c:	80 e8       	ldi	r24, 0x80	; 128
+ 59e:	98 9f       	mul	r25, r24
+ 5a0:	90 01       	movw	r18, r0
+ 5a2:	11 24       	eor	r1, r1
+ 5a4:	89 2f       	mov	r24, r25
+ 5a6:	86 95       	lsr	r24
+ 5a8:	82 2b       	or	r24, r18
+ 5aa:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 5ae:	80 e0       	ldi	r24, 0x00	; 0
+ 5b0:	0e 94 5e 03 	call	0x6bc	; 0x6bc <twi_tx>
+ 5b4:	cf 5f       	subi	r28, 0xFF	; 255
+ 5b6:	c8 30       	cpi	r28, 0x08	; 8
+ 5b8:	50 f3       	brcs	.-44     	; 0x58e <display+0x16>
+ 5ba:	0e 94 7c 03 	call	0x6f8	; 0x6f8 <twi_stop>
+ 5be:	cf 91       	pop	r28
+ 5c0:	08 95       	ret
+
+Disassembly of section .text.wait:
+
+00000688 <wait>:
+#include "display.h"
+
+
+void wait(int ms)
+{
+	for (int i=0; i<ms; i++)
+ 688:	20 e0       	ldi	r18, 0x00	; 0
+ 68a:	30 e0       	ldi	r19, 0x00	; 0
+ 68c:	08 c0       	rjmp	.+16     	; 0x69e <wait+0x16>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 68e:	ef ec       	ldi	r30, 0xCF	; 207
+ 690:	f7 e0       	ldi	r31, 0x07	; 7
+ 692:	31 97       	sbiw	r30, 0x01	; 1
+ 694:	f1 f7       	brne	.-4      	; 0x692 <wait+0xa>
+ 696:	00 c0       	rjmp	.+0      	; 0x698 <wait+0x10>
+ 698:	00 00       	nop
+ 69a:	2f 5f       	subi	r18, 0xFF	; 255
+ 69c:	3f 4f       	sbci	r19, 0xFF	; 255
+ 69e:	28 17       	cp	r18, r24
+ 6a0:	39 07       	cpc	r19, r25
+ 6a2:	ac f3       	brlt	.-22     	; 0x68e <wait+0x6>
+	{
+		_delay_ms(1);
+	}
+}
+ 6a4:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000005c2 <main>:
+outputs:	
+notes:			Looping forever, trashing the HT16K33
+Version :    	DMK, Initial code
+*******************************************************************/
+{
+	displayInit();
+ 5c2:	0e 94 76 03 	call	0x6ec	; 0x6ec <displayInit>
+	wait(500);
+ 5c6:	84 ef       	ldi	r24, 0xF4	; 244
+ 5c8:	91 e0       	ldi	r25, 0x01	; 1
+ 5ca:	0e 94 44 03 	call	0x688	; 0x688 <wait>
+
+	//displayChar('1', 0, 0);
+	
+	int a = 0;	
+ 5ce:	c0 e0       	ldi	r28, 0x00	; 0
+ 5d0:	d0 e0       	ldi	r29, 0x00	; 0
+
+	while(1==1) {
+		displayChar((char)(a % 126),0,0);
+ 5d2:	ce 01       	movw	r24, r28
+ 5d4:	6e e7       	ldi	r22, 0x7E	; 126
+ 5d6:	70 e0       	ldi	r23, 0x00	; 0
+ 5d8:	0e 94 1c 03 	call	0x638	; 0x638 <__divmodhi4>
+ 5dc:	40 e0       	ldi	r20, 0x00	; 0
+ 5de:	60 e0       	ldi	r22, 0x00	; 0
+ 5e0:	0e 94 02 03 	call	0x604	; 0x604 <displayChar>
+		wait(500);
+ 5e4:	84 ef       	ldi	r24, 0xF4	; 244
+ 5e6:	91 e0       	ldi	r25, 0x01	; 1
+ 5e8:	0e 94 44 03 	call	0x688	; 0x688 <wait>
+		display();
+ 5ec:	0e 94 bc 02 	call	0x578	; 0x578 <display>
+		displayClr();
+ 5f0:	0e 94 53 03 	call	0x6a6	; 0x6a6 <displayClr>
+		wait(500);
+ 5f4:	84 ef       	ldi	r24, 0xF4	; 244
+ 5f6:	91 e0       	ldi	r25, 0x01	; 1
+ 5f8:	0e 94 44 03 	call	0x688	; 0x688 <wait>
+		display();
+ 5fc:	0e 94 bc 02 	call	0x578	; 0x578 <display>
+		a++;
+ 600:	21 96       	adiw	r28, 0x01	; 1
+ 602:	e7 cf       	rjmp	.-50     	; 0x5d2 <main+0x10>
+
+Disassembly of section .text.libgcc.div:
+
+00000638 <__divmodhi4>:
+ 638:	97 fb       	bst	r25, 7
+ 63a:	07 2e       	mov	r0, r23
+ 63c:	16 f4       	brtc	.+4      	; 0x642 <__divmodhi4+0xa>
+ 63e:	00 94       	com	r0
+ 640:	07 d0       	rcall	.+14     	; 0x650 <__divmodhi4_neg1>
+ 642:	77 fd       	sbrc	r23, 7
+ 644:	09 d0       	rcall	.+18     	; 0x658 <__divmodhi4_neg2>
+ 646:	0e 94 30 03 	call	0x660	; 0x660 <__udivmodhi4>
+ 64a:	07 fc       	sbrc	r0, 7
+ 64c:	05 d0       	rcall	.+10     	; 0x658 <__divmodhi4_neg2>
+ 64e:	3e f4       	brtc	.+14     	; 0x65e <__divmodhi4_exit>
+
+00000650 <__divmodhi4_neg1>:
+ 650:	90 95       	com	r25
+ 652:	81 95       	neg	r24
+ 654:	9f 4f       	sbci	r25, 0xFF	; 255
+ 656:	08 95       	ret
+
+00000658 <__divmodhi4_neg2>:
+ 658:	70 95       	com	r23
+ 65a:	61 95       	neg	r22
+ 65c:	7f 4f       	sbci	r23, 0xFF	; 255
+
+0000065e <__divmodhi4_exit>:
+ 65e:	08 95       	ret
+
+Disassembly of section .text.libgcc.div:
+
+00000660 <__udivmodhi4>:
+ 660:	aa 1b       	sub	r26, r26
+ 662:	bb 1b       	sub	r27, r27
+ 664:	51 e1       	ldi	r21, 0x11	; 17
+ 666:	07 c0       	rjmp	.+14     	; 0x676 <__udivmodhi4_ep>
+
+00000668 <__udivmodhi4_loop>:
+ 668:	aa 1f       	adc	r26, r26
+ 66a:	bb 1f       	adc	r27, r27
+ 66c:	a6 17       	cp	r26, r22
+ 66e:	b7 07       	cpc	r27, r23
+ 670:	10 f0       	brcs	.+4      	; 0x676 <__udivmodhi4_ep>
+ 672:	a6 1b       	sub	r26, r22
+ 674:	b7 0b       	sbc	r27, r23
+
+00000676 <__udivmodhi4_ep>:
+ 676:	88 1f       	adc	r24, r24
+ 678:	99 1f       	adc	r25, r25
+ 67a:	5a 95       	dec	r21
+ 67c:	a9 f7       	brne	.-22     	; 0x668 <__udivmodhi4_loop>
+ 67e:	80 95       	com	r24
+ 680:	90 95       	com	r25
+ 682:	bc 01       	movw	r22, r24
+ 684:	cd 01       	movw	r24, r26
+ 686:	08 95       	ret
