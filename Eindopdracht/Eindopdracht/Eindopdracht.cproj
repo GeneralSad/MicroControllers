@@ -91,6 +91,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="card_reader.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="card_reader.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="display.c">
       <SubType>compile</SubType>
     </Compile>
