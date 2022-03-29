@@ -83,20 +83,20 @@ void spi_slaveDeSelect(unsigned char chipNumber)
 
 // Write a word = address byte + data byte from master to slave
 void spi_writeWord ( unsigned char adress, unsigned char data ) {
-		spi_slaveSelect(0);
-		spi_write(adress);
-		spi_write(data);
-		spi_slaveDeSelect(0);
+		spi_slaveSelect(0); //Select spi adress 0
+		spi_write(adress); //Write the register number you want to acces
+		spi_write(data); //Write data to the register
+		spi_slaveDeSelect(0); //Deselect spi adress 0
 }
 
 // Initialize the driver chip (type MAX 7219)
 void displayDriverInit() 
 {
 	
-	spi_writeWord(0x09, 0xFF);
-	spi_writeWord(0x0A, 0x04);
-	spi_writeWord(0x0B, 0x03);
-	spi_writeWord(0x0C, 0x01);
+	spi_writeWord(0x09, 0xFF); //Decode mode => BCD mode voor alle digits
+	spi_writeWord(0x0A, 0x04); //Intensity => Level 4
+	spi_writeWord(0x0B, 0x03); //Scan-limit => Display digits 0..3
+	spi_writeWord(0x0C, 0x01); //Shutdown register => Normal
 	
 }
 
@@ -104,7 +104,7 @@ void displayDriverInit()
 void displayOn() 
 {
 	
-	spi_writeWord(0x0C, 0x01);
+	spi_writeWord(0x0C, 0x01); //Shutdown register => Normal
 	
 }
 
@@ -112,7 +112,7 @@ void displayOn()
 void displayOff() 
 {
 	
-	spi_writeWord(0x0C, 0x00);
+	spi_writeWord(0x0C, 0x00); //Shutdown register => Shut down
 	
 }
 
@@ -120,22 +120,22 @@ void displayOff()
 
 void writeLedDisplay( int value ) // toont de waarde van value op het 4-digit display
 {
-	if (value < 0 || value > 9999)
+	if (value < 0 || value > 9999) //Check if number is bigger than 4 digits or is lower than 0
 	{
 		return;
 	}
 	
-	spi_writeWord('1', (value % 10));
-	spi_writeWord('2', (value % 100)/10);
-	spi_writeWord('3', (value % 1000)/100);
-	spi_writeWord('4', (value % 10000)/1000);	
+	spi_writeWord('1', (value % 10)); //First digit
+	spi_writeWord('2', (value % 100)/10); //Second digit
+	spi_writeWord('3', (value % 1000)/100); //Third digit
+	spi_writeWord('4', (value % 10000)/1000); //Fourth digit
 	
 }
 
 
 int main()
 {
-	// inilialize
+	// initialize
 	DDRB=0x01;					  	// Set PB0 pin as output for display select
 	spi_masterInit();              	// Initialize spi module
 	displayDriverInit();            // Initialize display chip
@@ -144,11 +144,11 @@ int main()
 	//for (char i =1; i<=2; i++) was 2, maar moest 4 zijn
 	for (char i =1; i<=4; i++)
 	{
-		spi_writeWord(i, 0);
+		spi_writeWord(i, 0); //Schrijf 0 naar alle adressen
 	}    
 	wait(1000);
 	
-	for (int i = 0; i < 10000; i++)
+	for (int i = 0; i < 10000; i++) //Tel op tot 10000
 	{
 		writeLedDisplay(i);
 		wait(10);	
