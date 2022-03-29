@@ -24,16 +24,16 @@ int main( void ) {
 	DDRA = 0xFF;				// set PORTA for output
 	//DDRB = 0xFF;				// set PORTB for output
 	adcInit();					// initialize ADC
-	lcd_init();
+	lcd_init();					// Init lcd
 
 	while (1)
 	{
 		PORTA = ADCH;
 		
 		char temp[10];
-		sprintf(temp, "%d    ", ADCH);
-		lcd_set_cursor(0);
-		lcd_display_text(temp);
+		sprintf(temp, "%d    ", ADCH);	//Give temp the value of ADCH in string form
+		lcd_set_cursor(0);				//Reset cursor
+		lcd_display_text(temp);			//Display temp on lcd
 		
 		wait(100);
 	}
@@ -50,7 +50,7 @@ int opdrachtB3( void )
 	while (1)
 	{
 		//PORTB = ADCL;			// Show MSB/LSB (bit 10:0) of ADC
-		PORTA = ADCH;
+		PORTA = ADCH;			// Show bit 8:0 of ADC
 		wait(100);				// every 100 ms (busy waiting)
 	}
 }
