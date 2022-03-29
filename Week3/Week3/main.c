@@ -14,7 +14,7 @@
 #include <xc.h>
 #include <stdio.h>
 
-#define BIT(x)			(1 << (x))
+#define BIT(x)			(1 << (x)) //Krijg een byte met de aangegeven bit naar 1 gezet
 
 // wait(): busy waiting for 'ms' millisecond
 // Used library: util/delay.h
@@ -35,8 +35,8 @@ void timer2Init( void ) {
 volatile int TimerPreset1 = -195;
 volatile int TimerPreset2 = -117;
 volatile int state = 0;
-ISR( TIMER2_COMP_vect ) {
-	if (state) {
+ISR( TIMER2_COMP_vect ) { //Interrupt voor timer
+	if (state) { //Check state, verander de timer preset. toggle bit 7 van PORTD en switch state
 		TCNT2 = TimerPreset1;
 		PORTD ^= BIT(7);
 		state = !state;
@@ -51,10 +51,9 @@ ISR( TIMER2_COMP_vect ) {
 int main( void ) {
 	DDRD = 0xFF;
 	DDRC = 0xFF;					// set PORTC for output (toggle PC0)
-	timer2Init();
+	timer2Init();					//Init de timer
 
 	while (1) {
-		// do something else
 		PORTC = TCNT2;
 		wait(10);			// every 10 ms (busy waiting
 	}
@@ -88,11 +87,10 @@ int opdrachtb1(void) {
 	DDRD &= ~BIT(7);		// PD7 op input: DDRD=xxxx xxx0
 	DDRA = 0xFF;			// set PORTA for output (shows countregister)
 	
-	timer2Init();
-	lcd_init();
-	lcd_set_cursor(0);
+	timer2Init();			//Init timer
+	lcd_init();				//Init lcd
+	lcd_set_cursor(0);		//Set cursor lcd
 	char str[4];
-
 	
 	int lastValue = 0;
 	int currentValue = 0;
@@ -100,11 +98,11 @@ int opdrachtb1(void) {
 	while (1) {
 		PORTA = TCNT2;		// show value counter 2
 		currentValue = TCNT2;
-		if (lastValue != currentValue)
+		if (lastValue != currentValue) //Check of de waarde is veranderd. Als dit zo is schrijf het nieuwe getal naar de lcd
 		{
-			sprintf(str, "%d  ",	currentValue);
-			lcd_set_cursor(0);
-			lcd_display_text(str);
+			sprintf(str, "%d  ",	currentValue); //Zet de waarde van currentValue in str
+			lcd_set_cursor(0); //Reset de cursor naar positie 0
+			lcd_display_text(str); //Schrijf str op de lcd
 			
 			lastValue = currentValue;
 		}
