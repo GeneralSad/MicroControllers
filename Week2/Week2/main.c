@@ -26,12 +26,12 @@ typedef struct {
 } PATTERN_STRUCT2;
 
 PATTERN_STRUCT2 pattern2[] = {
-	{0x00, 100}, {0x01, 100}, {0x02, 100}, {0x04, 100}, {0x10, 100}, {0x20, 100}, {0x40, 100}, {0x80, 100},
+	{0x00, 100}, {0x01, 100}, {0x02, 100}, {0x04, 100}, {0x10,100}, {0x20, 100}, {0x40, 100}, {0x80, 100},
 	{0x80, 100}, {0x40, 100}, {0x20, 100}, {0x10, 100}, {0x4, 100}, {0x02, 100}, {0x01, 100}, {0x00, 100},
-	{0xAA,  50}, {0x55,  50},{0xAA,  50}, {0x55,  50},{0xAA,  50}, {0x55,  50},{0x00, 100},
+	{0xAA,  50}, {0x55,  50}, {0xAA,  50}, {0x55,  50}, {0xAA, 50}, {0x55,  50}, {0x00, 100},
 	{0x18, 100}, {0x24, 100}, {0x42, 100}, {0x81, 100}, 
 	{0x0F, 200}, {0xF0, 200}, {0x0F, 200}, {0xF0, 200}, 
-	{0x00, 0x00}
+	{0x00,0x00}
 };
 
 void display(int digit) {
@@ -57,13 +57,13 @@ ISR( INT1_vect ) {
 
 int main(void) {
 	
-	init();
+	lcd_init();
 	char text[] = "Hello there";
 	char text2[] = "Bottom text";
-	set_cursor(0);
-	display_text(text);
-	set_cursor(40);
-	display_text(text2);
+	lcd_set_cursor(0); //Cursor naar eerste regel
+	lcd_display_text(text); //Schrijf text naar display
+	lcd_set_cursor(40); //Cursor naar tweede regel
+	lcd_display_text(text2); //Schrijf text naar display
 	return 1;
 	
 }
@@ -71,7 +71,6 @@ int main(void) {
 int OpdrachtB4(void)
 {
 DDRE = 0xFF;
-
 
 while(1) {
 	display(number);
@@ -101,22 +100,22 @@ int opdrachtB3( void ) {
 	sei();
 	
 	while(1) {
-		if ((button1 == 1) && (button2 == 1)) 
+		if ((button1 == 1) && (button2 == 1)) //Check of beide knoppen worden ingedrukt
 		{
 			number = 0;
-		} else if (button1 == 1)
+		} else if (button1 == 1) //Check of knop 1 wordt ingedrukt
 		{
-			number >= 16 ? number = 16 : number++;
-		} else if (button2 == 1)
+			number >= 16 ? number = 16 : number++; //Increment het nummer op het display als het getal niet hoger wordt dan 16, laat het anders op 16 staan
+		} else if (button2 == 1) //Check of knop 2 wordt ingedrukt
 		{
-			number <= 0 ? number = 0 : number--;
+			number <= 0 ? number = 0 : number--; //Decrement het nummer op het display als het getal niet lager wordt dan 0, laat het anders op 0 staan
 		}
 		
 		button1 = 0;
 		button2 = 0;
 		wait(10);
 		
-		display(number);
+		display(number); //Zet het nieuwe nummer op het display
 	}
 	
 	return 1;
@@ -124,7 +123,7 @@ int opdrachtB3( void ) {
 
 void opdrachtB2() {
 	
-	//ISR( INT2_vect ) {
+	//ISR( INT2_vect ) { //Interrupt voor lopen
 	//	if (PINE != 0b00000001)
 	//	{
 	//		PORTE = PINE>>1;
