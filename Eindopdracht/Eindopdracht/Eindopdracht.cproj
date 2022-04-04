@@ -40,6 +40,22 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.atmelice</avrtool>
+    <avrtoolserialnumber>J42700011270</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x1E9702</avrdeviceexpectedsignature>
+    <com_atmel_avrdbg_tool_atmelice>
+      <ToolOptions>
+        <InterfaceProperties>
+          <JtagDbgClock>2000000</JtagDbgClock>
+        </InterfaceProperties>
+        <InterfaceName>JTAG</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.atmelice</ToolType>
+      <ToolNumber>J42700011270</ToolNumber>
+      <ToolName>Atmel-ICE</ToolName>
+    </com_atmel_avrdbg_tool_atmelice>
+    <avrtoolinterface>JTAG</avrtoolinterface>
+    <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -91,12 +107,6 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="card_reader.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="card_reader.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="display.c">
       <SubType>compile</SubType>
     </Compile>
@@ -106,7 +116,40 @@
     <Compile Include="fonts.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mfrc522.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mfrc522.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mfrc522_cmd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mfrc522_reg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="spi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="spi_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wait.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wait.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

@@ -4,5 +4,13 @@
 
 display.c
 
+lcd.c
+
 main.c
+
+mfrc522.c
+
+spi.c
+
+wait.c
 
