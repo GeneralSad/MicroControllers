@@ -10,7 +10,8 @@ mfrc522.d mfrc522.o: .././mfrc522.c .././mfrc522.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\version.h \
  c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h \
- c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h
+ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h \
+ .././wait.h
 
 .././mfrc522.h:
 
@@ -43,3 +44,5 @@ c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\version.h:
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.31\avr\avr\include\avr\lock.h:
+
+.././wait.h:

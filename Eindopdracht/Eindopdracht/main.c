@@ -2,10 +2,8 @@
  * main.c
  *
  * Created: 3/23/2022 12:40:10 PM
- *  Author: Ewout
+ *  Author: Ewout,Leon
  */
-
-#define F_CPU 8e6
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>
@@ -19,6 +17,9 @@
 #include <stdio.h>
 
 int readSerial();
+uint32_t convertSerialN(uint8_t *send_data);
+uint32_t scanCard();
+void cardScanInit();
 /******************************************************************/
 // int main( void )
 // /*
@@ -66,6 +67,7 @@ void resetHolder()
 void test_write(const char *str)
 {
 	resetHolder();
+	lcd_display_text(stringHolder);
 	strcpy(stringHolder, str);
 	lcd_display_text(stringHolder);
 }
@@ -81,17 +83,53 @@ void writeHex(int hex)
 uint8_t byte = 255;
 uint8_t str[MAX_LEN];
 
+uint32_t key = 0;
+int userPrompted = 0;
+
 int main()
 {
 	lcd_init();
-	wait(100);
-
+	wait(10);
+	cardScanInit();
+	wait(10);
 	test_write("lcd init");
+	
+	displayInit();
+	wait(500);
+	displayChar('1', 0, 0);
 
-	DDRE = 0xff;
+	while (1)
+	{
+		wait(10);
+		if (key == 0 && userPrompted == 0)
+		{
+			userPrompted = 1;
+			test_write("Scan master key");
+			key = scanCard();
+			test_write("key was set");
+		}
+		
+		test_write("present key");
+		displayChar('?',0,0);
+		uint32_t scanned = scanCard();
 
+		if (scanned != key)
+		{
+			test_write("key invalid");
+			displayChar('X',0,0);
+			continue;
+		}
+		test_write("key valid");
+		displayChar('V',0,0);
+		
+		wait(1000);
+	}
+}
+
+void cardScanInit()
+{
 	spi_masterInit();
-	wait(100);
+	wait(10);
 
 	// init reader
 	mfrc522_init();
@@ -112,60 +150,52 @@ int main()
 	{
 		test_write("no rc522");
 	}
-
-	PORTE = byte;
-
 	byte = mfrc522_read(ComIEnReg);
 	mfrc522_write(ComIEnReg, byte | 0x20);
 	byte = mfrc522_read(DivIEnReg);
 	mfrc522_write(DivIEnReg, byte | 0x80);
+}
 
-	wait(1500);
-
+uint32_t scanCard()
+{
 	while (1)
 	{
 		byte = mfrc522_request(PICC_REQALL, str);
-		writeHex(byte);
-		PORTE = byte;
-		if (byte == CARD_FOUND)
+		
+		if (byte != CARD_FOUND)
 		{
-			if (!readSerial())
-				continue;
-			byte = mfrc522_get_card_auth(str);
-			PORTE = byte;
-
-			lcd_set_cursor(0);
-			for (byte = 0; byte < 8; byte++)
-			{
-				writeHex(str[byte]);
-				wait(1000);
-			}
-			wait(250);
+			wait(10);
+			continue;
 		}
 
-		wait(1000);
+		if (readSerial())
+		{
+			return convertSerialN(str);
+		}
+		wait(10);
 	}
+	return 0;
+}
+
+uint32_t convertSerialN(uint8_t *send_data)
+{
+	uint32_t holdefffff = 0;
+	for (int i = 0; i < 4; i++)
+	{
+		holdefffff = holdefffff << 8;
+		holdefffff |= send_data[i];
+		send_data[i] = 0;
+	}
+
+	return holdefffff;
 }
 
 int readSerial()
 {
-	test_write("card found");
 	byte = mfrc522_get_card_serial(str);
-	PORTE = byte;
-	if (byte == CARD_FOUND)
-	{
-		lcd_set_cursor(0);
-		for (byte = 0; byte < 8; byte++)
-		{
-			// writeHex(str[byte]);
-			// wait(500);
-		}
-		wait(250);
-	}
-	else
-	{
+
+	if (byte != CARD_FOUND)
 		return 0;
-		// PORTE = byte;
-	}
+
 	return 1;
 }

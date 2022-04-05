@@ -93,6 +93,7 @@ void lcd_strobe_lcd_e(void) {
 void lcd_display_text(char * str) {
 	lcd_set_cursor(0);
 	lcd_write_string(str);
+	wait(100);
 }
 
 void lcd_set_cursor(int position) {

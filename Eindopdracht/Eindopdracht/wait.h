@@ -8,7 +8,7 @@
 
 #ifndef WAIT_H_
 #define WAIT_H_
-#define F_CPU 8e6
+
 void wait(int ms);
 
 

@@ -194,6 +194,8 @@ void displayChar(char ch, uint8_t x, uint8_t y)
 	{
 		buf[i] = font[(int)ch][i];
 	} 
+	
+	display();
 }
 
 /******************************************************************/
