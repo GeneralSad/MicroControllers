@@ -486,15 +486,15 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x2f40
+.debug_info     0x0000000000000000     0x2f79
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x780 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/xc8/avr/lib/avr51/memx-const/crtatmega128.o
- .debug_info    0x0000000000000780      0x781 display.o
- .debug_info    0x0000000000000f01      0x51b lcd.o
- .debug_info    0x000000000000141c      0x9a2 main.o
- .debug_info    0x0000000000001dbe      0xbe9 mfrc522.o
- .debug_info    0x00000000000029a7      0x286 spi.o
- .debug_info    0x0000000000002c2d      0x313 wait.o
+ .debug_info    0x0000000000000780      0x7ba display.o
+ .debug_info    0x0000000000000f3a      0x51b lcd.o
+ .debug_info    0x0000000000001455      0x9a2 main.o
+ .debug_info    0x0000000000001df7      0xbe9 mfrc522.o
+ .debug_info    0x00000000000029e0      0x286 spi.o
+ .debug_info    0x0000000000002c66      0x313 wait.o
 
 .debug_abbrev   0x0000000000000000      0xda2
  *(.debug_abbrev)
