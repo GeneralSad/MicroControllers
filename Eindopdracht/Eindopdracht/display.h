@@ -12,10 +12,8 @@
 void displayInit(void);
 void displaySetPixel(uint8_t x, uint8_t y);
 void displayClrPixel(uint8_t x, uint8_t y);
-void displayChar(char ch, uint8_t x, uint8_t y);
-void displayString(char *str, uint8_t x, uint8_t y);
-void displayRotl(void);
-void displayRotr(void);
+void displayChar(char ch);
+
 void displayClr(void);
 
 void display(void);

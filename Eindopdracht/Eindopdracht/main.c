@@ -64,7 +64,7 @@ void resetHolder()
 	}
 }
 
-void test_write(const char *str)
+void string_write(const char *str)
 {
 	resetHolder();
 	lcd_display_text(stringHolder);
@@ -92,11 +92,11 @@ int main()
 	wait(10);
 	cardScanInit();
 	wait(10);
-	test_write("lcd init");
+	string_write("lcd init");
 	
 	displayInit();
 	wait(500);
-	displayChar('1', 0, 0);
+	displayChar('1');
 
 	while (1)
 	{
@@ -104,23 +104,23 @@ int main()
 		if (key == 0 && userPrompted == 0)
 		{
 			userPrompted = 1;
-			test_write("Scan master key");
+			string_write("Scan master key");
 			key = scanCard();
-			test_write("key was set");
+			string_write("key was set");
 		}
 		
-		test_write("present key");
-		displayChar('?',0,0);
+		string_write("present key");
+		displayChar('?');
 		uint32_t scanned = scanCard();
 
 		if (scanned != key)
 		{
-			test_write("key invalid");
-			displayChar('X',0,0);
+			string_write("key invalid");
+			displayChar('X');
 			continue;
 		}
-		test_write("key valid");
-		displayChar('V',0,0);
+		string_write("key valid");
+		displayChar('V');
 		
 		wait(1000);
 	}
@@ -140,15 +140,15 @@ void cardScanInit()
 
 	if (byte == 0x92)
 	{
-		test_write("rc522 v2");
+		string_write("rc522 v2");
 	}
 	else if (byte == 0x91 || byte == 0x90)
 	{
-		test_write("rc522 v1");
+		string_write("rc522 v1");
 	}
 	else
 	{
-		test_write("no rc522");
+		string_write("no rc522");
 	}
 	byte = mfrc522_read(ComIEnReg);
 	mfrc522_write(ComIEnReg, byte | 0x20);

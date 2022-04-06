@@ -1,5 +1,5 @@
 /*
- * main.c
+ * mfrc522.c
  *
  * Created: 3/23/2022 12:40:10 PM
  *  Author: Ewout, Leon
